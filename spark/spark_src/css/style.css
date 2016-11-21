@@ -1,0 +1,204 @@
+* {
+    margin:             0px;
+    padding:            0px;
+
+}
+
+@font-face {
+    font-family: 'PROXIMANOVA-BLACK';
+    src: url('PROXIMANOVA-BLACK.otf');
+    src: url('ProximaNova-Black.eot') format('truetype'), url('ProximaNova-Black.woff') format('woff'), url('ProximaNova-Black.svg') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PROXIMANOVA-LIGHT';
+    src: url('PROXIMANOVA-LIGHT.otf');
+    src: url('ProximaNova-Light.eot') format('truetype'), url('ProximaNova-Light.woff') format('woff'), url('ProximaNova-Light.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family:    'PROXIMANOVA-BLACK', sans-serif, Arial;
+    text-align:     left;
+    font-size:      40px;
+    color:          #C3C3C3;
+    background: #f3f3f3;
+    padding-top: 18px;
+}
+
+h4 {
+    font-family:    'PROXIMANOVA-BLACK', sans-serif, Arial;
+    position:   absolute;
+    text-align: center;
+    left:       8px;
+    top:        22px;
+    color:      #F70572;
+    font-size: 15px;
+    -webkit-transition: all 0.5s ease;
+    opacity: 0;
+}
+
+h3 {
+      font-family:  'PROXIMANOVA-LIGHT', sans-serif, Arial;
+    position:   absolute;
+    left:       115px;
+    top:        270px;
+    color:      #F70572;
+    font-size: 15px;
+
+}
+    
+.logo1  {
+    display:    none;
+    position:   absolute;
+    top:        280px;
+    left:       80px;
+    width:      70px;
+    height:     70px;
+    border:     9px solid #F70572;
+    background: #f3f3f3;
+}
+
+.logo2  {
+    display:    none;
+    position:   absolute;
+    top:        280px   ;
+    left:       176px;
+    width:      32px;
+    height:     32px;
+    border:     8px solid #FCC922;
+    background: #f3f3f3;
+}
+
+.item:hover h4{
+    font-family:    'PROXIMANOVA-BLACK', sans-serif, Arial;
+    position:   absolute;
+    left:       0px;
+    top:        25px;
+    color:      #F70572;
+    font-size: 15px;
+    opacity: 1;
+    -webkit-transition: all 0.5s ease;
+    z-index: 80;
+}
+
+.item  {
+    border:         7px solid #FCC922;
+    width:          50px;
+    height:         50px;   
+    background: #f3f3f3;
+}
+
+.item2 {
+    border:         7px solid #F70572;
+    width:          50px;
+    height:         50px;   
+    background: #f3f3f3;
+}
+
+.item2:hover h4{
+    font-family:    'PROXIMANOVA-BLACK', sans-serif, Arial;
+    position:   absolute;
+    left:       0px;
+    top:        25px;
+    color:      #FCC922;
+    font-size: 15px;
+    opacity: 1;
+    -webkit-transition: all 0.5s ease;
+    z-index: 80;
+}
+
+
+.twitter {
+    position:           absolute;
+    left:               152px;
+    top:                548px;
+    background: #f3f3f3;
+}
+
+.streamer {
+    border-radius:      7px;
+    position:           absolute;
+    left:               40%;
+    top:                162px;
+    background: #f3f3f3;
+}
+
+.plus {
+    position:           absolute;
+    left:               15px;
+    top:                480px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 34px;
+    background: #f3f3f3;
+    padding: 2px 12px 2px 12px;
+    border: solid #f70572 6px;
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease;
+}
+
+.plus:hover {   
+    -webkit-transform: rotate(90deg);
+    -webkit-transition: all 0.5s ease;
+}
+
+.fleche1 {
+    height: 15px;
+    width: 10px;
+    position: relative;
+    top: -7px;
+    left: 8px;
+}
+
+.fleche2 {
+    height: 15px;
+    width: 10px;
+    position: relative;
+    top: -7px;
+    left: 15px;
+}
+
+.titre  {
+    width:              305px;
+    height:             50px;
+    background: #f3f3f3;
+}
+
+.streamers  {
+    padding-top: 30px;
+    width:              305px;
+    height:             70px;
+    background: #f3f3f3;
+}
+
+.contenue {
+    width:              305px;
+    height:             400px;
+    background: #f3f3f3;
+    z-index: 0;
+}
+
+div:hover+div+div .logo1 {
+   -webkit-transform: rotate(90deg);
+   -webkit-transition: all 0.5s ease;
+    
+}
+
+div:hover+div+div .logo2 {
+   -webkit-transform: rotate(-90deg);
+   -webkit-transition: all 0.5s ease;
+    
+}
+
+.fleche { position: absolute;
+    top: 300px;
+    left: -5px;
+     -webkit-transform: rotate(-10deg);
+width:175px;}

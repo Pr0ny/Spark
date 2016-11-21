@@ -1,0 +1,27 @@
+{
+  "name": "spark",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "app": "~0.1.0",
+    "ajax": "~0.0.4",
+    "express": "~4.14.0",
+    "jquery": "~3.1.0",
+    "formidable": "~1.0.17",
+    "socket.io": "~1.4.8",
+    "socket.io-client": "~1.4.8",
+    "static": "~2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.epitech.eu:/chemin_q/spark"
+  },
+  "author": "Quentin Chemin / Matthieu Lambert",
+  "license": "BSD-2-Clause"
+}

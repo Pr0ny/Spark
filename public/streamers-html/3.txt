@@ -1,0 +1,41 @@
+    <section>
+
+        <link id="css_vote" rel="stylesheet" href="css/style3.css" media="screen">
+
+        <div>
+            <h1>  ON PART SUR QUELLE <br> <strong>LANE </strong> CE SOIR ? </h1>
+        </div>
+
+        <div id="img1" class="reponse">
+            <h2 id="titrereponse"> TOP </h2>
+            <div class="bleu"></div>
+            <div class="jaune"></div>
+        </div>
+
+        <div id="img2" class="reponse2">
+            <h2 id="titrereponse2"> JUNGLE </h2>
+            <div class="bleu"></div>
+            <div class="jaune"></div>
+
+        </div>
+
+        <div id="img3" class="reponse3">
+            <h2 id="titrereponse3"> MID </h2>
+            <div class="bleu"></div>
+            <div class="jaune"></div>
+        </div>
+
+        <div id="img4" class="reponse4">
+            <h2 id="titrereponse4"> ADC </h2>
+            <div class="bleu"></div>
+            <div class="jaune"></div>
+        </div>
+
+        <div id="img5" class="reponse5">
+            <h2 id="titrereponse5"> SUPPORT </h2>
+            <div class="bleu"></div>
+            <div class="jaune"></div>
+        </div>
+
+    </section>
+    <script src="script/vote_role2.js"></script>

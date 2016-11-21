@@ -1,0 +1,179 @@
+<!Doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./css/admin.css">
+		<script src="node_modules/jquery.min.js"></script>
+        <script src="node_modules/socket.io.js"></script>
+	</head>
+	<body>
+	    <!--img id="test" src="./img/spark/background/background.png" style="position: absolute"-->
+		<div class="login" id="login">
+    		<input type="text" id="password"/>
+        	<button class="button" onclick="login()">Confirmation</button>
+        </div>
+        <choiceEvent id="choiceEvent">
+
+        </choiceEvent>      	
+        <resultEvent id="resultEvent">
+        	<h1 id="1"></h1>
+        	<h1 id="2"></h1>
+        	<h1 id="3"></h1>
+        	<h1 id="4"></h1>
+        	<h1 id="5"></h1>
+        </resultEvent>
+	</body>
+	<footer>
+		<script type="text/javascript">
+            
+            //Plugin variable
+            var socketio = io.connect("/");
+            //Glabal variable
+            var _streamerName = "";
+            var color = 0;
+
+            // Login related
+        	function login()
+        	{
+        		var login = $("#password").val();
+                socketio.emit("LoginAdmin", { login : login });
+                console.log("Login send to the server. Waiting for response...");
+        	}
+
+            socketio.on("LoginComplete", function(data)
+            {
+                console.log("Response recieved from the server. code = " + data['code']);
+
+                if (data['code'] != 1)
+                {
+                    console.log("A problem has occured. Waiting for details");
+                    errorHandler(data);
+                }
+                else
+                {
+                    var html = data['html'];
+                    var name = data['name'];
+
+                    _streamerName = name;
+                    $("#choiceEvent").html(html);
+                    $('#login').toggle("slow");
+                    $('#choiceEvent').toggle("slow");
+                    console.log("Login completed. Nice to see you " + name + ".\n");
+                }
+
+            });
+
+
+            // Event related
+            function sendEvent(num, nbv)
+            {
+                var code;
+
+                if (num && nbv)
+                    code = 0;
+                else if (!num || !nbv)
+                {
+                    code = 4;
+                }
+                socketio.emit("EventAdmin", {
+                                            name: _streamerName,
+                                            fn: num,
+                                            code: code
+                                            });
+                initResult(nbv);
+            }
+
+            function cancelEvent()
+            {
+                console.log("je cancel");
+                var code = 0;
+                socketio.emit("CancelEventAdmin",   {
+                                                    name: _streamerName,
+                                                    code: code
+                                                    });
+                clearResult();
+            }
+
+            socketio.on("AwnserEvent", function(data)
+            {
+               console.log(data['results']);
+                $("#1").html(data['results']['1']);
+                $("#2").html(data['results']['2']);
+                $("#3").html(data['results']['3']);
+                $("#4").html(data['results']['4']);
+                $("#5").html(data['results']['5']);
+/*                var id = "#" + data['results']['1'];
+                var curr = parseInt($(id).html());
+
+
+                curr += 1;
+                $(id).html(curr);
+                console.log(curr);
+                console.log(id);*/
+            });
+
+            function errorHandler(data)
+            {
+                var code = data['code'];
+                var desc = data['error'];
+                var html = data['html'];
+
+                console.log("An error has occured. If you want to know more about this contact mimoone.spark@gmail.com\nDetails :\n");
+                if (code > 1 && code <= 10)
+                {
+                    console.log("CODE :  " + code + "\n");
+                    console.log("DESCRIPTION : " + desc + "\n");
+                    if (html)
+                        $("#choiceEvent").html(html);
+                    else
+                    {
+                        $("#choiceEvent").html("<p top: 10%>No html has been given</p>");
+                    }
+                    $('#login').toggle("slow");
+                    $('#choiceEvent').toggle("slow");
+                }
+            }
+
+
+
+            // Event's result related
+            function initResult(nbv)
+            {
+                var i = 1;
+                var nb = parseInt(nbv);
+
+                while(i <= nbv)
+                {
+                    var target = "#" + i.toString();
+
+                    $(target).html("0");
+                    $(target).show();
+                    console.log("nb = " + nb);
+                    i++;
+                }
+                $("#resultEvent").show();
+                console.log("Je suis la ! :)");
+            }
+
+            function clearResult()
+            {
+                var i = 1;
+
+                $("#resultEvent").hide();
+                while(i <= 5)
+                {
+                    var target = "#" + i.toString();
+
+                    $(target).hide();
+                    $(target).html("");
+                    i++;
+                }
+            }
+
+            window.onbeforeunload = closingCode;
+            function closingCode(){
+                socketio.emit("AdminLeave", {name: _streamerName});
+            }
+
+        </script>
+	</footer>
+</html>

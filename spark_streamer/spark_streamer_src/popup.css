@@ -1,0 +1,37 @@
+html {
+	max-height:	472px;
+	max-width: 	500px;
+}
+
+.element, .outer-container {
+ width: 500px;
+ height: 472px;
+}
+ 
+.outer-container {
+ position: relative;
+ overflow: hidden;
+}
+ 
+.inner-container {
+ position: absolute;
+ left: 0;
+ overflow-x: hidden;
+ overflow-y: scroll;
+}
+ 
+.inner-container::-webkit-scrollbar {
+ display: none;
+}
+
+body {
+	padding: 	0px;
+	margin: 	0px;
+	height: 	472px;
+	width:		500px;
+}
+
+iframe {
+	height: 	100%;
+	width:	 	100%;
+}

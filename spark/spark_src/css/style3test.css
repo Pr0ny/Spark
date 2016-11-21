@@ -1,0 +1,238 @@
+/* ---------------------------  Site codé par SPARK --------------------------- */
+
+/* ---------------------------
+
+
+FONT
+
+
+--------------------------- */
+
+/* ---------------------------
+
+
+ALL
+
+
+--------------------------- */
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-size: 1em;
+}
+
+body {}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ---------------------------
+
+GENERAL
+
+--------------------------- */
+
+section {
+    height: 600px;
+    width: 305px;
+    background: #000000;
+}
+
+div::before {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 180px;
+    background: #fff;
+    margin-left: 65px;
+    margin-top: -25px;
+    z-index: 50;
+}
+
+div+div::before {
+    position: absolute;
+    content: '';
+    height: 7px;
+    width: 248px;
+    background: #fff;
+    margin-left: 27px;
+    margin-top: 0px;
+    z-index: 50;
+}
+
+div {
+    padding-top: 70px;
+    height: 100px;
+    background: #000000;
+    margin: auto;
+}
+
+div+div {
+    padding-top: 0px;
+    height: 80px;
+}
+
+
+/* ---------------------------
+
+TITRE
+
+--------------------------- */
+
+h1 {
+    z-index: 80;
+    text-align: center;
+    height: 43px;
+    width: 206px;
+    font-size: 12px;
+    margin-left: 54px;
+    marging-top: 66px;
+    background: #fff;
+    padding-top: 10px;
+    font-family: sans-serif;
+    color: #94714b;
+    font-weight: bold;
+}
+
+
+/* ---------------------------
+
+QUESTION TITRE
+
+--------------------------- */
+
+div+div h2 {
+    position: relative;
+    z-index: 80;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 19px;
+    font-family: sans-serif;
+    font-size: 20px;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    -webkit-transition-duration: 1.3s;
+}
+
+
+/* ---------------------------
+
+QUESTION EFFET COULEUR
+
+ENLEVE LE COM POUR VOIR LE PRINCIPE MAIS J AVAIS PAS LA FOIS DE LE FAIRE CE SOIR EN CSS / JQUERRY 
+
+--------------------------- */
+
+
+/* ---------------------------
+
+h2+p {
+    position :absolute;
+    margin-top: -38px;
+    color: #cc2121;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 35px;
+    margin-left: 128px;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    -webkit-transition-duration: 1.3s;
+    opacity: 0;
+    z-index: 5;
+}
+
+h2:hover+p {
+
+    margin-left: 187px;
+    -webkit-transition-duration: 1.3s;
+    opacity: 1;
+}
+
+h2+p+p {
+    position :absolute;
+  margin-top: -38px;
+    color: #473dc7;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 35px;
+    margin-left: 128px;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    -webkit-transition-duration: 1.3s;
+    opacity: 0;
+    z-index: 5;
+}
+
+h2:hover+p+p {
+
+    margin-left: 1174px;
+    -webkit-transition-duration: 1.3s;
+    opacity: 1;
+}
+--------------------------- */
+
+/* ---------------------------
+
+IMAGE QUESTION
+
+--------------------------- */
+
+div div::before {
+    content: '';
+    height: 0px;
+    width: 0px;
+}
+
+div div {
+    padding-top: 0px;
+    z-index: 0;
+    position: absolute;
+    top: 175px;
+    height: 0px;
+    left: 26px;
+}
+
+h2+p+p+div img {
+    z-index: 0;
+    float: left;
+    position: absolute;
+    -webkit-transition-duration: 1.3s;
+    filter: brightness(80%);
+}
+
+/*h2:hover+p+p+div img {
+    -webkit-transition-duration: 1.3s;
+    filter: brightness(160%);
+}*/
+
+div+div+div div {
+    top: 255px;
+}
+
+div+div+div+div div {
+    top: 335px;
+}
+
+div+div+div+div+div div {
+    top: 415px;
+}
+
+div+div+div+div+div+div div {
+    top: 495px;
+}

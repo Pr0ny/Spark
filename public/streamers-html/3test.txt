@@ -1,0 +1,44 @@
+<section>
+
+<link rel="stylesheet" href="css/style3test.css" media="screen">
+
+<div>
+ <h1>  ON PART SUR QUELLE <br> LANE CE SOIR ? </h1>
+</div>
+
+<div id="img1" class="reponse">
+    <h2 id="titrereponse"> TOP </h2>
+    <p>TOP</p>
+    <p>TOP</p>
+    <div> <img class="imgreponse" src="image/ASSETS_REPONSES/test.gif"> </div>
+</div>
+
+<div id="img2" class="reponse2">
+    <h2 id="titrereponse2"> JUNGLE </h2>
+    <p>JUNGLE</p>
+    <p>JUNGLE</p>
+    <div> <img class="imgreponse2" src="image/ASSETS_REPONSES/test2.gif"> </div>
+</div>
+
+<div id="img3" class="reponse3">
+    <h2 id="titrereponse3"> MID </h2>
+    <p>MID</p>
+    <p>MID</p>
+    <div> <img class="imgreponse3" src="image/ASSETS_REPONSES/test3.gif"> </div>
+</div>
+
+<div id="img4" class="reponse4">
+    <h2 id="titrereponse4"> ADC </h2>
+    <p>ADC</p>
+    <p>ADC</p>
+    <div> <img class="imgreponse4" src="image/ASSETS_REPONSES/test5.gif"> </div>
+</div>
+
+<div id="img5" class="reponse5">
+    <h2 id="titrereponse5"> SUPPORT </h2>
+    <p>SUPPORT</p>
+    <p>SUPPORT</p>
+    <div> <img class="imgreponse5" src="image/ASSETS_REPONSES/test4.gif"> </div>
+</div>
+</section>
+<script src="script/vote_role.js"></script>

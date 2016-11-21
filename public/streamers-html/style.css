@@ -1,0 +1,98 @@
+int {
+	margin:		0px;
+	padding: 	0px;
+	width: 		814px;
+}
+
+span {
+	width: 		407px;
+	height: 	90px;
+}
+
+3 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		right;
+	display: 	none;
+}
+
+divE0 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		initial;
+	position: 	fixed;
+	top:		110px;
+	left: 		0px;
+}
+
+divE1 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		initial;
+	position: 	fixed;
+	top:		202px;
+	left: 		0px;
+}
+
+divE2 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		initial;
+	position: 	fixed;
+	top:		294px;
+	left: 		0px;
+}
+
+divE3 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		initial;
+	position: 	fixed;
+	top:		386px;
+	left: 		0px;
+}
+
+div1 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		right;
+	display:	none;
+	position: 	absolute;
+	left: 		50%;
+}
+
+div2 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		right;
+	display:	none;
+	position: 	absolute;
+	left: 	50%;
+}
+
+div3 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		right;
+	display:	none;
+	left: 50%;
+	position: 	absolute;
+}
+
+div4 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		right;
+	display:	none;
+	left: 50%;
+	position: 	absolute;
+}
+
+div5 {
+	margin: 	0px;
+	width: 		50%;
+	float: 		right;
+	display:	none;
+	left: 50%;
+	position: 	absolute;
+}

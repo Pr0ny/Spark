@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+
+  "name": "Spark for viewer",
+  "short_name": "Spark",
+  "description": "SparkExtension",
+  "version": "1.4.4",
+
+  "background": {
+      "page": "notifications.html"
+  },
+
+  "browser_action": {
+    "default_icon": "ICONS/logo-03.png",
+    "default_popup": "client.html"
+  },
+
+"content_security_policy": "script-src 'unsafe-eval'; object-src 'self'",
+
+  "permissions": [
+    "notifications",
+    "tabs",
+    "storage",
+    "activeTab",
+    "https://ajax.googleapis.com/",
+    "https://spark-esport.herokuapp.com/*"
+  ],
+  "icons": {
+      "128" : "ICONS/logo-03.png"
+  }
+}
