@@ -153,7 +153,7 @@ io.sockets.on('connection', function(client)
     }, 100000);
   })();*/
 
-  /*client.on("whoIsLog", function()
+client.on("whoIsLog", function()
   {
     client.emit("allAdmin", {adminLog: adminLog});
   });
@@ -360,6 +360,6 @@ io.sockets.on('connection', function(client)
                                                   code: code
                                                   });
     }
-  });*/
+  });
 
 });
