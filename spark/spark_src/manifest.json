@@ -4,7 +4,7 @@
   "name": "Spark for viewer",
   "short_name": "Spark",
   "description": "SparkExtension",
-  "version": "1.4.4",
+  "version": "1.4.5",
 
   "background": {
       "page": "notifications.html"
@@ -23,7 +23,7 @@
     "storage",
     "activeTab",
     "https://ajax.googleapis.com/",
-    "https://spark-esport.herokuapp.com/*"
+    "https://spark-extension.herokuapp.com/*"
   ],
   "icons": {
       "128" : "ICONS/logo-03.png"

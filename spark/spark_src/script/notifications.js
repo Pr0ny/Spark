@@ -3,7 +3,7 @@
 // 	  			| quentin.chemin@epitech.eu			|		\\
 //	  			-------------------------------------		\\
 
-var hone = io.connect("https://spark-esport.herokuapp.com/");
+var hone = io.connect("https://spark-extension.herokuapp.com/");
 var res = "";
 var val = 0
 var value = 0;
@@ -39,6 +39,16 @@ localStorage.fullUrl = "null";
 function cb (id) {
 	value++;
 }
+
+var option = {
+    type: "image",
+    title: "Live is on !",
+    message: "Artheon est en live !",
+    iconUrl: "ICONS/artheon-01.png",
+    imageUrl: "ICONS/testt.jpg"
+}
+
+chrome.notifications.create("test", option, cb());
 
 hone.emit("streamers", {streamers: localStorage.follow});
 

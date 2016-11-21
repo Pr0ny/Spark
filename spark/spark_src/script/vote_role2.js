@@ -1,5 +1,5 @@
 var htwo = io.connect("https://spark-esport-data.herokuapp.com/")
-var hone = io.connect("https://spark-esport.herokuapp.com/");
+var hone = io.connect("https://spark-extension.herokuapp.com/");
 var elem1 = document.getElementById("img1");
 var elem2 = document.getElementById("img2");
 var elem3 = document.getElementById("img3");

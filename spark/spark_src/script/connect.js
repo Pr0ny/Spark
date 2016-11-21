@@ -2,7 +2,7 @@
 //              | Victor ... Nettoyeur          |           \\
 //              ---------------------------------           \\
 
-var hone = io.connect("https://spark-esport.herokuapp.com/");
+var hone = io.connect("https://spark-extension.herokuapp.com/");
 var htwo = io.connect("https://spark-esport-data.herokuapp.com/")
 
 $(document).ready(function()
