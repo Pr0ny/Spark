@@ -3,7 +3,7 @@
 // 	  			| quentin.chemin@epitech.eu			|		\\
 //	  			-------------------------------------		\\
 
-var hone = io.connect("https://spark-extension.herokuapp.com/");
+var hone = io.connect("http://spark-esport.cleverapps.io/");
 var res = "";
 var val = 0
 var value = 0;
@@ -39,16 +39,6 @@ localStorage.fullUrl = "null";
 function cb (id) {
 	value++;
 }
-
-var option = {
-    type: "image",
-    title: "Live is on !",
-    message: "Artheon est en live !",
-    iconUrl: "ICONS/artheon-01.png",
-    imageUrl: "ICONS/testt.jpg"
-}
-
-chrome.notifications.create("test", option, cb());
 
 hone.emit("streamers", {streamers: localStorage.follow});
 
@@ -111,67 +101,7 @@ var refresh_live = setInterval(function()
 	hone.emit("getLive", {streamers: localStorage.follow})
 }, 10000);
 
-// hone.on("loggedAdmin", function(data)
-// {
-// 	console.log("Streamer = %s", data['name']);
-// 	_opt = {
-// 		type: "basic",
-// 		title: "Live is on !",
-// 		message: (data['name'] + " est en live !"),
-// 		iconUrl: "ICONS/logo-01.gif",
-// 	}
-// 	if (data['name'] == "domingo.tv" || data['name'] == "corobizar.com" || data['name'] == "www.skyyart.fr")
-// 		_mUrl = "https://";
-// 	else
-// 		_mUrl = "https://www.twitch.tv/";
-// 	_mUrl = _mUrl + data['name'];
-// 	chrome.notifications.create("connection", _opt, cb());
-// 	chrome.notifications.onClicked.addListener(function()
-// 		{
-// 		chrome.notifications.clear("connection", function(){
-// 			var i = 0;
-// 			i++;
-// 		});
-// 		chrome.tabs.getAllInWindow(window.id, function(tabs) {
-// 		var i = 0;
-//   		while (i <= tabs.length - 1) {
-// 	    if (tabs[i].url == _mUrl) {
-//         	chrome.tabs.update(tabs[i].id, {selected: true});
-//         	return ;
-//     	  }
-//     	  i++;
-// 	    }
-// 		    chrome.tabs.create({
-// 		    	url: _mUrl,
-// 	    		selected: true,
-//     		});
-// 	});
-
-// 		});
-// });
-
 adminLog.splice(0, 1);
-
-// hone.on("allAdmin", function(data)
-// {
-//     adminLog = data['adminLog']
-//     if (adminLog[0])
-//     {
-//         _opt = {
-//             type: "basic",
-//             title: "Live is on !",
-//             message: "Des streamers que tu suis sont en live !",
-//             iconUrl: "ICONS/logo-01.gif",
-//         }
-//         chrome.notifications.create("connect", _opt, cb());
-//     }
-// });
-
-// hone.on ("refreshLive", function(data)
-// {
-// 	adminLog.splice(0, adminLog.length);
-// 	adminLog = data['adminLog'];
-// });
 
 function refresh()
 {
