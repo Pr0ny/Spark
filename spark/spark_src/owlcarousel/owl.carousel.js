@@ -1420,7 +1420,7 @@
 			return;
 		}
 
-		this.trigger('remove', { content: this._items[position], position: position });
+		this.trigger('del', { content: this._items[position], position: position });
 
 		this._items[position].remove();
 		this._items.splice(position, 1);
@@ -1428,7 +1428,7 @@
 
 		this.invalidate('items');
 
-		this.trigger('removed', { content: null, position: position });
+		this.trigger('deled', { content: null, position: position });
 	};
 
 	/**
@@ -1454,7 +1454,7 @@
 			'refresh': this.refresh,
 			'replace': this.replace,
 			'add': this.add,
-			'remove': this.remove
+			'del': this.remove
 		}, $.proxy(function(event, callback) {
 			this.$element.on(event + '.owl.carousel', handler(callback, event + '.owl.carousel'));
 		}, this));

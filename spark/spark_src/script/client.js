@@ -67,7 +67,7 @@ if (localStorage.data3 != "null")
 
 $(document).ready(function(){
   $(".owl-carousel").owlCarousel({
-    loop:true,
+    loop:false,
     margin:-50,
     nav:true,
     navText: ["<img class='fleche1' src='ICONS/fleche.png'>","<img class='fleche2' src='ICONS/fleche_2.png'>"],
@@ -94,11 +94,11 @@ $(document).ready(function() {
       textholder,
       booleanValue = false;
  
-  owl.owlCarousel({
+/*  owl.owlCarousel({
     loop:true,
     margin:-50,
     nav:true,
-  });
+  });*/
 
 ////// GESTION DU TITRE \\\\\\\\
 
@@ -132,12 +132,24 @@ $(document).ready(function() {
                 {
                     data = "<div id='" + res[i] + "' class='item'><h4>" + res[i] + "</h4></div>";
                     var content = '<div class="owl-item">' + data + '</div>';
-                    owl.trigger('add.owl.carousel', [$(content), 1])
+                    owl.trigger('add.owl', [$(content), 0]);
                     i++;
                 }
             }
         }
         owl.trigger('refresh.owl.carousel');
+    };
+
+    function delete_carousel()
+    {
+        var res = localStorage.follow.split(",");
+        var i = 0;
+        while (res[i])
+        {
+            owl.trigger('del.owl', [0]);
+            owl.trigger('del.owl-clone', [0]);
+            i++;
+        }
     }
 
     set_carousel();
@@ -148,11 +160,14 @@ $(document).ready(function() {
     function timeout_carousel()
     {
 
+    console.log(exData);
+    if (exData[0])
+    {
     if (exData[0]['sn'].localeCompare("null") == 0)
     {
         hone.emit("getLive", {streamers: localStorage.follow})
 
-       hone.on("setLive", function(data)
+        hone.on("setLive", function(data)
         {
             exData = data;
         });
@@ -164,16 +179,8 @@ $(document).ready(function() {
         {
             if (localStorage.follow.localeCompare(save) != 0)
             {
-                owl.trigger('destroy.owl.carousel');
-                $(document).ready(function(){
-                    $(".owl-carousel").owlCarousel({
-                        loop:true,
-                        margin:-50,
-                        nav:true,
-                        navText: ["<img class='fleche1' src='ICONS/fleche.png'>","<img class='fleche2' src='ICONS/fleche_2.png'>"],
-                    });
-                });
-                console.log("test");
+                console.log("la");
+                delete_carousel();
                 hone.emit("streamers", {streamers: localStorage.follow});
                 var i = 0;
                 while (exData[i])
@@ -183,13 +190,13 @@ $(document).ready(function() {
                     {
                         data = "<div id='" + exData[i]['sn'] + "' class='item'><h4 id ='" + exData[i]['sn'] +"'>" + exData[i]['sn'] + "</h4></div>";
                         var content = '<div class="owl-item">' + data + '</div>';
-                        owl.trigger('add.owl.carousel', [$(content), 1])
+                        owl.trigger('add.owl.carousel', [$(content), 0])
                     }
                     else
                     {
                         data = "<div id='" + exData[i]['sn'] + "' class='item2'><h4 id='" + exData[i]['sn'] + "'>" + exData[i]['sn'] + "</h4></div>";
                         var content = '<div class="owl-item">' + data + '</div>';
-                        owl.trigger('add.owl.carousel', [$(content), 1])
+                        owl.trigger('add.owl.carousel', [$(content), 0])
                     }
                     i++;
                 }
@@ -197,6 +204,7 @@ $(document).ready(function() {
                 owl.trigger('refresh.owl.carousel');
             }
         }
+    }
     }
 
     if (val <= 1)

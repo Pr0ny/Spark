@@ -57,7 +57,15 @@ hone.emit("streamers", {streamers: localStorage.follow});
 					iconUrl: "ICONS/logo-03.png",
 				}
 			if (data[i]['sn'] == "artheontv")
-				_opt["iconUrl"] = "ICONS/artheon-01.png"
+			{
+				_opt = {
+					type: "image",
+					title: "Live is on !",
+					message: (data[i]['sn'] + " est en live !"),
+					iconUrl: "ICONS/artheon-01.png",
+					imageUrl: "ICONS/artheon_notif.png",
+				}
+			}
 			if (data[i]['sn'] == "domingo.tv" || data[i]['sn'] == "corobizar.com" || data[i]['sn'] == "www.skyyart.fr")
 				_mUrl = "https://";
 			else
