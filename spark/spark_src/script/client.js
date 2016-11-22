@@ -73,9 +73,6 @@ $(document).ready(function(){
     navText: ["<img class='fleche1' src='ICONS/fleche.png'>","<img class='fleche2' src='ICONS/fleche_2.png'>"],
     });
 });
-                chrome.tabs.getAllInWindow(undefined, function(tab) {
-                console.log(tab);
-            });
 
 //////// TIME OUT POUR LA FLECHE D'EXPLICATION \\\\\\\
 
@@ -161,6 +158,15 @@ $(document).ready(function() {
     {
 
     console.log(exData);
+    if (exData.length == 0)
+    {
+        hone.emit("getLive", {streamers: localStorage.follow})
+
+        hone.on("setLive", function(data)
+        {
+            exData = data;
+        });
+    }
     if (exData[0])
     {
     if (exData[0]['sn'].localeCompare("null") == 0)

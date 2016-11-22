@@ -4,7 +4,7 @@
   "name": "Spark for viewer",
   "short_name": "Spark",
   "description": "SparkExtension",
-  "version": "1.4.5",
+  "version": "1.1.6",
 
   "background": {
       "page": "notifications.html"
