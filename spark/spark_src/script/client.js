@@ -149,7 +149,7 @@ $(document).ready(function() {
     {
         hone.emit("getLive", {streamers: localStorage.follow})
 
-        hone.on("setLive", function(data)
+        hone.on("setLive",  function(data)
         {
             exData = data;
         });
@@ -165,18 +165,32 @@ $(document).ready(function() {
             exData = data;
         });
     }
-    if (localStorage.follow.localeCompare(save) != 0)
-    {
-        console.log("getshitdone");
-        hone.emit("getLive", {streamers: localStorage.follow})
 
-        hone.on("setLive", function(data)
+    var fl = localStorage.follow.split(',').length
+    var dl = exData.length
+
+    var k = 0;
+
+    if (dl < fl)
+    {
+        console.log(dl);
+        console.log(fl);
+        console.log(exData);
+        var get_data = setTimeout(function()
         {
-            exData = data;
-        });
+            hone.emit("streamers", {streamers: localStorage.follow})
+            hone.emit("getLive", {streamers: localStorage.follow})
+
+            hone.on("setLive", function(data)
+            {
+                exData = data;
+            });
+        }, 2000)
     }
+    console.log(localStorage.follow);
+    console.log(exData);
     var data = "";
-    if (localStorage.follow)
+    if (localStorage.follow && dl == fl)
     {
         if (exData[0]['sn'].localeCompare("null") != 0)
         {
@@ -255,6 +269,7 @@ $(document).ready(function() {
             {
                 localStorage.follow = localStorage.streamer;
             }
+            location.reload();
             console.log(res);
             console.log(localStorage.follow);
         }
