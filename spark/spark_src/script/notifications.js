@@ -116,10 +116,8 @@ function refresh()
 
   var timeout = setInterval(function()
   {
-	chrome.tabs.getSelected(null, function(tab) {
-	    tab.id = tab.id;
-	    tabUrl = tab.url;
-	    var str = tab.url.split("/", 4)
+	chrome.tabs.query({active: true}, function(tab) {
+	    var str = tab[0].url.split("/", 4)
 	    res = str[3];
 	    if (res == "")
 	    	res = str[2];
@@ -143,6 +141,7 @@ function refresh()
 	  		iconUrl: "ICONS/logo-01.gif",
 		}
 
+		console.log(save);
 		hone.emit("LoginClient",    {code: 0,
 			                        room: save});
 	}
