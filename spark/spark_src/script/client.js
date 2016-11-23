@@ -42,18 +42,6 @@ $(document).ready(function()
     });
 });
 
-    chrome.tabs.getSelected(null, function(tab) {
-        tab.id = tab.id;
-        tabUrl = tab.url;
-        var str = tab.url.split("/", 4)
-        var res = str[3];
-        if (res == "")
-            res = str[2];
-
-        hone.emit("LoginClient",    {code: 0,
-                                        room: res}); 
-});
-
 if (localStorage.data3 != "null")
 {
     $('#NoEvent').hide("fast");
@@ -157,12 +145,11 @@ $(document).ready(function() {
     function timeout_carousel()
     {
 
-    console.log(exData);
     if (exData.length == 0)
     {
         hone.emit("getLive", {streamers: localStorage.follow})
 
-        hone.on("setLive", function(data)
+        hone.on("setLive",  function(data)
         {
             exData = data;
         });
@@ -178,16 +165,40 @@ $(document).ready(function() {
             exData = data;
         });
     }
+
+    var fl = localStorage.follow.split(',').length
+    var dl = exData.length
+
+    var k = 0;
+
+    if (dl < fl)
+    {
+        console.log(dl);
+        console.log(fl);
+        console.log(exData);
+        var get_data = setTimeout(function()
+        {
+            hone.emit("streamers", {streamers: localStorage.follow})
+            hone.emit("getLive", {streamers: localStorage.follow})
+
+            hone.on("setLive", function(data)
+            {
+                exData = data;
+            });
+        }, 2000)
+    }
+    console.log(localStorage.follow);
+    console.log(exData);
     var data = "";
-    if (localStorage.follow)
+    if (localStorage.follow && dl == fl)
     {
         if (exData[0]['sn'].localeCompare("null") != 0)
         {
             if (localStorage.follow.localeCompare(save) != 0)
             {
-                console.log("la");
                 delete_carousel();
                 hone.emit("streamers", {streamers: localStorage.follow});
+                console.log("je passe ici !");
                 var i = 0;
                 while (exData[i])
                 {
@@ -258,6 +269,7 @@ $(document).ready(function() {
             {
                 localStorage.follow = localStorage.streamer;
             }
+            location.reload();
             console.log(res);
             console.log(localStorage.follow);
         }
