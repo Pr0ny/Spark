@@ -45,7 +45,7 @@ $(document).ready(function()
 if (localStorage.data3 != "null")
 {
     $('#NoEvent').hide("fast");
-    $('#vote').show("slow");    
+    $('#vote').show("slow");
     $('#vote').html(localStorage.data3);
     $('#css_base').attr("href", "");
     localStorage.data3 = "null";
@@ -78,7 +78,7 @@ $(document).ready(function() {
       i = 1,
       textholder,
       booleanValue = false;
- 
+
 /*  owl.owlCarousel({
     loop:true,
     margin:-50,
