@@ -23,8 +23,6 @@ var socket = require('socket.io');
 var fs = require('fs');
 /* -- twitch data manager -- */
 var _tw = require("./twitch.js");
-/* -- data client test -- */
-var test = require("./socketInterpretor.spark");
 
 /*  ===================================  *\
 |                                         |
@@ -101,12 +99,6 @@ setInterval(getUpdated, 10*1000);
 
 var lol = io.sockets.on('connection', function(client)
 {
-
-  var toto = new test.sI();
-
-  toto.sS("lol");
-
-  console.log(toto.gS());
   client.on("streamers", function(data)
   {
     var spl = data['streamers'].split(',');
