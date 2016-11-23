@@ -97,7 +97,7 @@ function getUpdated()
 setInterval(checkStreamers, 10*1000);
 setInterval(getUpdated, 10*1000);
 
-io.sockets.on('connection', function(client)
+var lol = io.sockets.on('connection', function(client)
 {
 
   client.on("streamers", function(data)
