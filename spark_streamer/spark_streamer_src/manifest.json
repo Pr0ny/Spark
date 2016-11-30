@@ -6,10 +6,6 @@
   "description": "Gestion de spark pour votre stream",
   "version": "1.1",
 
-  "background": {
-    "page": "index_streamer.html"
-  },
-
   "browser_action": {
     "default_icon": "ICONS/Icon48-01.png"
   },
@@ -17,7 +13,7 @@
     "tabs",
     "activeTab",
     "https://ajax.googleapis.com/",
-    "https://spark-esport.herokuapp.com/admin.html"
+    "https://spark-esport-dev.cleverapps.io/admin.html"
   ],
 
   "icons": {

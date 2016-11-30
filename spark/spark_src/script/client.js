@@ -1,4 +1,4 @@
-var hone = io.connect("http://spark-esport.cleverapps.io/");
+var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
 
 var addfollow = document.getElementById("plus");
 var save = "";
@@ -26,7 +26,6 @@ $(document).ready(function()
         $('#vote').hide("slow");
     }
 
-
     hone.on("EventClientStart", function(data)
     {
         $('#vote').html(data['html']);
@@ -40,16 +39,15 @@ $(document).ready(function()
         $('#css_vote').remove();
         EndEvent();
     });
-});
 
-if (localStorage.data3 != "null")
-{
-    $('#NoEvent').hide("fast");
-    $('#vote').show("slow");
-    $('#vote').html(localStorage.data3);
-    $('#css_base').attr("href", "");
-    localStorage.data3 = "null";
-}
+    if (localStorage.data3 != "null")
+    {
+        AnimEvent();
+        $('#vote').html(localStorage.data3);
+        $('#css_base').attr("href", "");
+        localStorage.data3 = "null";
+    }
+});
 
 ////// INIT CAROUSEL \\\\\\
 

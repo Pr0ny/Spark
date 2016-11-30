@@ -1,5 +1,5 @@
 var htwo = io.connect("https://spark-esport-data.herokuapp.com/")
-var hone = io.connect("https://spark-esport.herokuapp.com/");
+var hone = io.connect("https://spark-esport-dev.herokuapp.com/");
 var elem1 = document.getElementById("img1");
 var elem2 = document.getElementById("img2");
 var elem3 = document.getElementById("img3");
@@ -65,7 +65,7 @@ if (elem1 != null && value == 0)
             $("#titrereponse5").css("margin-left", "-160px")
             $(".imgreponse").css("-webkit-filter", "hue-rotate(50deg) brightness(130%)")
             $("#img1").css("cursor", "default")            
-            htwo.emit("AwnserEvent",    {name: save,
+            htwo.emit("AnswerEvent",    {name: save,
                                         message: "1"});
         }
         value++;
@@ -101,7 +101,7 @@ if (elem2 != null && value == 0)
             $("#titrereponse5").css("margin-left", "-160px")
             $(".imgreponse2").css("-webkit-filter", "hue-rotate(50deg) brightness(110%)")
             $("#img2").css("cursor", "default")
-            htwo.emit("AwnserEvent",    {name: save,
+            htwo.emit("AnswerEvent",    {name: save,
                                         message: "2"});
         }
         value++;
@@ -137,7 +137,7 @@ if (elem3 != null && value == 0)
             $("#titrereponse5, #titrereponse2").css("margin-left", "-160px")
             $(".imgreponse3").css("-webkit-filter", "hue-rotate(50deg) brightness(130%)")
             $("#img3").css("cursor", "default")
-            htwo.emit("AwnserEvent",    {name: save,
+            htwo.emit("AnswerEvent",    {name: save,
                                         message: "3"});
         }
         value++;
@@ -173,7 +173,7 @@ if (elem4 != null && value == 0)
             $("#titrereponse5, #titrereponse2").css("margin-left", "-160px")
             $(".imgreponse4").css("-webkit-filter", "hue-rotate(50deg) brightness(130%)")
             $("#img4").css("cursor", "default")
-            htwo.emit("AwnserEvent",    {name: save,
+            htwo.emit("AnswerEvent",    {name: save,
                                         message: "4"});
         }
         value++;
@@ -209,7 +209,7 @@ if (elem5 != null && value == 0)
             $("#titrereponse2").css("margin-left", "-160px")
             $(".imgreponse5").css("-webkit-filter", "hue-rotate(50deg) brightness(130%)")
             $("#img5").css("cursor", "default")
-            htwo.emit("AwnserEvent",    {name: save,
+            htwo.emit("AnswerEvent",    {name: save,
                                         message: "5"});
         }
         value++;

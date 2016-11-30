@@ -1,8 +1,4 @@
-//              ---------------------------------           \\
-//              | Victor ... Nettoyeur          |           \\
-//              ---------------------------------           \\
-
-var hone = io.connect("http://spark-esport.cleverapps.io/");
+var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
 
 $(document).ready(function()
 {
@@ -41,13 +37,13 @@ $(document).ready(function()
             res = str[2];
 
         hone.emit("LoginClient",    {code: 0,
-                                        room: res}); 
+                                        room: res});
     });
 
 if (localStorage.data3 != "null")
 {
     $('#NoEvent').hide("fast");
-    $('#vote').show("slow");    
+    $('#vote').show("slow");
     $('#vote').html(localStorage.data3);
     $('#css_base').attr("href", "");
     localStorage.data3 = "null";

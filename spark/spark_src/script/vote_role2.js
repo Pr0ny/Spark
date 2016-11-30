@@ -80,7 +80,7 @@ if (elem1 != null && value == 0)
 
             /// -- ENVOIT DE LA REPONSE -- ///
 
-                htwo.emit("AwnserEvent",    {name: localStorage.streamer,
+                htwo.emit("AnswerEvent",    {name: localStorage.streamer,
                                             message: "1"});
 
                 value++;
@@ -161,7 +161,7 @@ if (elem2 != null && value == 0)
 
             /// -- ENVOIT DE LA REPONSE -- ///
 
-                htwo.emit("AwnserEvent",    {name: localStorage.streamer,
+                htwo.emit("AnswerEvent",    {name: localStorage.streamer,
                                             message: "2"});
 
                 value++;
@@ -243,7 +243,7 @@ if (elem2 != null && value == 0)
 
             /// -- ENVOIT DE LA REPONSE -- ///
 
-                htwo.emit("AwnserEvent",    {name: localStorage.streamer,
+                htwo.emit("AnswerEvent",    {name: localStorage.streamer,
                                             message: "3"});
 
                 value++;
@@ -325,7 +325,7 @@ if (elem4 != null && value == 0)
 
             /// -- ENVOIT DE LA REPONSE -- ///
 
-                htwo.emit("AwnserEvent",    {name: localStorage.streamer,
+                htwo.emit("AnswerEvent",    {name: localStorage.streamer,
                                             message: "4"});
 
                 value++;            
@@ -407,7 +407,7 @@ if (elem5 != null && value == 0)
 
             /// -- ENVOIT DE LA REPONSE -- ///
 
-                htwo.emit("AwnserEvent",    {name: localStorage.streamer    ,
+                htwo.emit("AnswerEvent",    {name: localStorage.streamer    ,
                                             message: "5"});
 
                 value++;
