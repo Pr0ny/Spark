@@ -63,6 +63,7 @@ function requestTwitch(name, i)
   	{
       if (body.substring(1, 14) == "\"stream\":null")
       {
+        console.log(name + " is offline");
         var obj = {
           sn: name,
           ic: 0,
@@ -72,6 +73,7 @@ function requestTwitch(name, i)
       }
       else
       {
+        console.log(name + " is online");
         var nba = body.indexOf("\"status\":\"") + 10;
         var nbb = body.indexOf("\",\"broadcaster");
         var sub = body.substring(nba, nbb);
