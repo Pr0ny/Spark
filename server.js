@@ -120,28 +120,31 @@ var lol = io.sockets.on('connection', function(client)
 
   client.on("getLive", function(data)
   {
-    var ret = [];
-    console.log("Le bon debug : " + data['streamers']);
-    var spl = data['streamers'].split(',');
-    for (var i = 0, len = spl.length; i < len; i++)
+    if (data['streamers'])
     {
-      //console.log("getLive = " + spl[i]);
-      for (var j = 0, lenn = _dataStreamers.length; j < lenn; j++)
+      var ret = [];
+      console.log("Le bon debug : " + 0data['streamers']);
+      var spl = data['streamers'].split(',');
+      for (var i = 0, len = spl.length; i < len; i++)
       {
-        //console.log("yolo  =  " + _dataStreamers[j]['sn'] + " " + _dataStreamers[j]['ic']);
-        if (_dataStreamers[j]['sn'] == spl[i])
+        //console.log("getLive = " + spl[i]);
+        for (var j = 0, lenn = _dataStreamers.length; j < lenn; j++)
         {
-          //console.log("added to the data send : " + _dataStreamers[j]['sn']);
-          var obj = {
-          sn: spl[i],
-          ic: _dataStreamers[j]['ic'],
-          st: _dataStreamers[j]['st']
-        };
-          ret.push(obj);
+          //console.log("yolo  =  " + _dataStreamers[j]['sn'] + " " + _dataStreamers[j]['ic']);
+          if (_dataStreamers[j]['sn'] == spl[i])
+          {
+            //console.log("added to the data send : " + _dataStreamers[j]['sn']);
+            var obj = {
+            sn: spl[i],
+            ic: _dataStreamers[j]['ic'],
+            st: _dataStreamers[j]['st']
+          };
+            ret.push(obj);
+          }
         }
       }
+      client.emit("setLive", ret); 
     }
-    client.emit("setLive", ret);
   });
   /*(function()
   {
