@@ -36,6 +36,16 @@ var _save = [];
 |                                         |
 \*  ===================================  */
 
+function checkPresence(name)
+{
+  for (var i = 0, len = _dataStreamers.length; i < len; i++)
+  {
+    if (name == _dataStreamers[i]['sn'])
+      return true;
+  }
+  return false;
+}
+
 function requestTwitch(name, i)
 {
   console.log("RequestTwitch => " + name);
@@ -71,7 +81,8 @@ function requestTwitch(name, i)
           ic: 1,
           st: sub
         };
-        _dataStreamer.push(obj);
+        if (checkPresence(name) == false)
+          _dataStreamer.push(obj);
       }
   	});
 }
