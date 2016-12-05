@@ -123,7 +123,7 @@ var lol = io.sockets.on('connection', function(client)
     if (data['streamers'])
     {
       var ret = [];
-      console.log("Le bon debug : " + 0data['streamers']);
+      console.log("Le bon debug : " + data['streamers']);
       var spl = data['streamers'].split(',');
       for (var i = 0, len = spl.length; i < len; i++)
       {
