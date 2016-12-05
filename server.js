@@ -121,7 +121,7 @@ var lol = io.sockets.on('connection', function(client)
   client.on("getLive", function(data)
   {
     var ret = [];
-    //console.log(data['streamers']);
+    console.log("Le bon debug : " + data['streamers']);
     var spl = data['streamers'].split(',');
     for (var i = 0, len = spl.length; i < len; i++)
     {
