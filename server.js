@@ -139,7 +139,7 @@ var lol = io.sockets.on('connection', function(client)
             ic: _dataStreamers[j]['ic'],
             st: _dataStreamers[j]['st']
             };
-            console.log(">" + obj['st'] + " " + obj['ic'] +"<");
+            console.log(">" + obj['sn'] + " " + obj['ic'] +"<");
             ret.push(obj);
           }
         }
