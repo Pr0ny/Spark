@@ -133,7 +133,7 @@ var lol = io.sockets.on('connection', function(client)
           //console.log("yolo  =  " + _dataStreamers[j]['sn'] + " " + _dataStreamers[j]['ic']);
           if (_dataStreamers[j]['sn'] == spl[i])
           {
-            console.log("added to the data send : " + _dataStreamers[j]['sn'] + " " + _dataStreamers[j]['ic']);
+            //console.log("added to the data send : " + _dataStreamers[j]['sn'] + " " + _dataStreamers[j]['ic']);
             var obj = {
             sn: spl[i],
             ic: _dataStreamers[j]['ic'],
@@ -143,6 +143,12 @@ var lol = io.sockets.on('connection', function(client)
           }
         }
       }
+      console.log("><");
+      for (var j = 0, lenn = _dataStreamers.length; j < lenn; j++)
+      {
+        console.log("data send -> " + _dataStreamers[j]['sn']
+      }
+      console.log("<>");
       client.emit("setLive", ret); 
     }
   });
