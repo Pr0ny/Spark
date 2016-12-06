@@ -146,7 +146,7 @@ var lol = io.sockets.on('connection', function(client)
       console.log("><");
       for (var j = 0, lenn = _dataStreamers.length; j < lenn; j++)
       {
-        console.log("data send -> " + _dataStreamers[j]['sn']
+        console.log("data send -> " + _dataStreamers[j]['sn']);
       }
       console.log("<>");
       client.emit("setLive", ret); 
