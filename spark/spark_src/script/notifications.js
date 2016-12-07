@@ -3,15 +3,23 @@
 // 	  			| quentin.chemin@epitech.eu			|		\\
 //	  			-------------------------------------		\\
 
-var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
+var hone = io.connect("http://spark-esport.cleverapps.io/");
 var res = "";
 var val = 0
 var value = 0;
 var save = "noset";
+var onLineSn = [];
 _mUrl = "";
 adminLog = [];
 _check = 0;
 var exData = [];
+
+var obj1 = {
+    url: "null",
+    val: 0
+}
+
+onLineSn.push(obj1);
 
 var spl = "";
 if (localStorage.follow)
@@ -30,62 +38,98 @@ localStorage.data3 = "null";
 localStorage.streamer = "null";
 localStorage.fullUrl = "null";
 
-function cb(id) {
-    value++;
-}
-
-function create_notif(i, j, data, onLineSn)
-{
-    _opt = {
-        type: "basic",
-        title: "Live is on !",
-        message: (data[i]['sn'] + " est en live !"),
-        iconUrl: "ICONS/logo-03.png",
-    }
-
-    if (data[i]['sn'] == "artheontv") {
-        _opt = {
-            type: "image",
-            title: "Live is on !",
-            message: (data[i]['sn'] + " est en live !"),
-            iconUrl: "ICONS/artheon-01.png",
-            imageUrl: "ICONS/artheon_notif.png",
-        }
-    }
-
-    if (data[i]['sn'] == "domingo.tv" || data[i]['sn'] == "corobizar.com" || data[i]['sn'] == "www.skyyart.fr")
-        _mUrl = "https://";
-    else
-        _mUrl = "https://www.twitch.tv/";
-
-    _mUrl = _mUrl + data[i]['sn'];
-    onLineSn[j] = _mUrl;
-    j++;
-
-    let connection_name = data[i]['sn'];
-    chrome.notifications.create(connection_name, _opt, cb());
-    chrome.notifications.onClicked.addListener(function(notifName) {
-    if (notifName === connection_name) {
-        chrome.notifications.clear(connection_name, function(wasCleared) {console.log("Notif connection wasCleared : " + wasCleared)});
-            console.log(connection_name);
-            setFocusOnLiveTab(onLineSn, connection_name);
-        }
-    });
-    exData[i] = data[i];
-}
-
 hone.emit("streamers", {
     streamers: localStorage.follow
 });
 
+function cb(id) {
+    value++;
+}
+
 hone.on("setLive", function(data) {
-    var onLineSn = [];
     var i = 0;
-    var j = 0;
+    var j = 1;
+    var k = 0;
     for (var i = 0, len = data.length; i < len; i++) {
-        if (data[i]['ic'] == 1 && exData[i]['ic'] == 0) {
-            create_notif(i, j, data, onLineSn);
-            j++;
+        /*if (data[i]['ic'] == 0)
+        {
+            while(exData[k])
+            {
+                if (data[i]['sn'].localeCompare(exData[k]['sn']) == 0)
+                {
+                    if (exData[k]['ic'] == 1)
+                    {
+                        exData[k]['ic'] = 0;
+                    }
+                }
+                k++;
+            }
+        }*/
+        if (data[i]['ic'] == 1)
+        {
+            k = 0;
+            while (exData[k])
+            {
+                if (data[i]['sn'].localeCompare(exData[k]['sn']) == 0)
+                {
+                    if (exData[k]['ic'] == 0)
+                    {
+                        exData[k]['ic'] = 1;
+                        _opt = {
+                            type: "basic",
+                            title: "Live is on !",
+                            message: (data[i]['sn'] + " est en live !"),
+                            iconUrl: "ICONS/logo-03.png",
+                        }
+                        if (data[i]['sn'] == "artheontv") {
+                            _opt = {
+                                type: "image",
+                                title: "Live is on !",
+                                message: (data[i]['sn'] + " est en live !"),
+                                iconUrl: "ICONS/artheon-01.png",
+                                imageUrl: "ICONS/artheon_notif.png",
+                            }
+                        }
+                        if (data[i]['sn'] == "domingo.tv" || data[i]['sn'] == "corobizar.com" || data[i]['sn'] == "www.skyyart.fr")
+                            _mUrl = "https://";
+                        else
+                            _mUrl = "https://www.twitch.tv/";
+
+                        _mUrl = _mUrl + data[i]['sn'];
+                        if (onLineSn[j] &&  onLineSn[j]['url'] != _mUrl)
+                        {
+                            obj2 = {
+                                url: _mUrl,
+                                val: 0
+                            }
+                            onLineSn.push(obj2);
+                        }
+                        else
+                        {
+                            obj2 = {
+                                url: _mUrl,
+                                val: 0
+                            }
+                            onLineSn.push(obj2);
+                        }
+                        let connection_name = data[i]['sn'];
+                        chrome.notifications.create(connection_name, _opt, cb());
+                        if (onLineSn[j]['val'] == 0)
+                        {
+                            onLineSn[j]['val'] = 1;
+                            chrome.notifications.onClosed.addListener(function(notifName) {
+                                        console.log("notif was cleared");
+                                    });
+                            chrome.notifications.onClicked.addListener(function(notifName) {
+                                    chrome.notifications.clear(notifName, function(wasCleared) {console.log("Notif connection wasCleared : " + wasCleared)});
+                                        console.log(connection_name);
+                                        setFocusOnLiveTab(onLineSn, notifName);
+                                });
+                        }
+                    }
+                }
+                k++;
+            }
         }
     }
 });
@@ -164,9 +208,7 @@ function setFocusOnLiveTab2() {
 }
 
 function setFocusOnLiveTab(onLineSn, connection_name) {
-    console.log(onLineSn);
-    console.log(connection_name);
-    var j = 0;
+    var j = 1;
     var NewUrl = "https://www.twitch.tv/" + connection_name;
     chrome.tabs.getAllInWindow(window.id, function(tabs) {
       var tab = tabs.map(function(elem) { return elem.url; }).indexOf(NewUrl);
@@ -175,7 +217,7 @@ function setFocusOnLiveTab(onLineSn, connection_name) {
       } else {
         while (onLineSn[j])
         {
-            if (onLineSn[j] == NewUrl)
+            if (onLineSn[j]['url'] == NewUrl)
             {
                 chrome.tabs.create({
                     url: NewUrl,

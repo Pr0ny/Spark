@@ -1,4 +1,4 @@
-var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
+var hone = io.connect("http://spark-esport.cleverapps.io/");
 
 $(document).ready(function()
 {

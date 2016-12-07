@@ -1,17 +1,24 @@
-var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
+var hone = io.connect("http://spark-esport.cleverapps.io/");
 
 var addfollow = document.getElementById("plus");
 var save = "";
 adminLog = []
 exData = [];
 val = 0;
+total = 0;
+saved = 0;
 
-var obj = {
-    sn: "null",
-    ic: 0,
+var spl = "";
+if (localStorage.follow)
+    spl = localStorage.follow.split(",");
+
+for (var k = 0, len = spl.length; k < len; k++) {
+    var obj = {
+        sn: spl[k],
+        ic: 0
+    };
+    exData.push(obj);
 }
-
-exData[0] = obj;
 
 
 $(document).ready(function()
@@ -143,60 +150,72 @@ $(document).ready(function() {
     function timeout_carousel()
     {
 
-    if (exData.length == 0)
-    {
-        hone.emit("getLive", {streamers: localStorage.follow})
-
-        hone.on("setLive",  function(data)
+        if (exData.length == 0)
         {
-            exData = data;
-        });
-    }
-    if (exData[0])
-    {
-    if (exData[0]['sn'].localeCompare("null") == 0)
-    {
-        hone.emit("getLive", {streamers: localStorage.follow})
+            hone.emit("getLive", {streamers: localStorage.follow})
 
-        hone.on("setLive", function(data)
+            hone.on("setLive",  function(data)
+            {
+                exData = data;
+            });
+        }
+        if (exData[0])
         {
-            exData = data;
-        });
-    }
-
-    var fl = localStorage.follow.split(',').length
-    var dl = exData.length
-
-    var k = 0;
-
-    if (dl < fl)
-    {
-        console.log(dl);
-        console.log(fl);
-        console.log(exData);
-        var get_data = setTimeout(function()
+        if (exData[0]['sn'].localeCompare("null") == 0)
         {
-            hone.emit("streamers", {streamers: localStorage.follow})
             hone.emit("getLive", {streamers: localStorage.follow})
 
             hone.on("setLive", function(data)
             {
                 exData = data;
             });
-        }, 2000)
-    }
-    console.log(localStorage.follow);
-    console.log(exData);
+        }
+
+
+            var get_data = setTimeout(function()
+            {
+                hone.emit("streamers", {streamers: localStorage.follow})
+                hone.emit("getLive", {streamers: localStorage.follow})
+
+                hone.on("setLive", function(data)
+                {
+                    var i = 0;
+                    var k = 0;
+                    for (var i = 0, len = data.length; i < len; i++) {
+                        if (data[i]['ic'] == 1)
+                        {
+                            k = 0;
+                            while (exData[k])
+                            {
+                                if (data[i]['sn'].localeCompare(exData[k]['sn']) == 0)
+                                {
+                                    if (exData[k]['ic'] == 0)
+                                    {
+                                        console.log("Exdata passé : sn = " + exData[k]['sn'])
+                                        exData[k]['ic'] = 1;
+                                        total++;
+                                    }
+                                }
+                                k++;
+                            }
+                        }
+                    }
+                });
+            }, 5000)
+
     var data = "";
-    if (localStorage.follow && dl == fl)
+    if (localStorage.follow)
     {
         if (exData[0]['sn'].localeCompare("null") != 0)
         {
-            if (localStorage.follow.localeCompare(save) != 0)
+            console.log(saved);
+            console.log(total);
+            if (saved != total)
             {
+                console.log("saved = ", saved)
+                console.log("total = ", total)
                 delete_carousel();
                 hone.emit("streamers", {streamers: localStorage.follow});
-                console.log("je passe ici !");
                 var i = 0;
                 while (exData[i])
                 {
@@ -215,7 +234,7 @@ $(document).ready(function() {
                     }
                     i++;
                 }
-                save = localStorage.follow;
+                saved = total;
                 owl.trigger('refresh.owl.carousel');
             }
         }
