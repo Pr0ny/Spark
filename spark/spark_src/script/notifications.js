@@ -52,6 +52,7 @@ hone.on("setLive", function(data) {
     var i = 0;
     var j = 1;
     var k = 0;
+    console.log(data);
     for (var i = 0, len = data.length; i < len; i++) {
         /*if (data[i]['ic'] == 0)
         {
