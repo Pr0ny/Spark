@@ -62,17 +62,17 @@ function requestTwitch(name, i)
   	{
       if (body.substring(1, 14) == "\"stream\":null")
       {
-      /*  var basUri = "https://api.twitch.tv/kraken/channels/" + name;
+        var basUri = "https://api.twitch.tv/kraken/channels/" + name;
         var data = _request({
             headers: {
             'Client-ID': _cId,
             'Content-Type': 'application/json'
             },
-            uri: uri,
+            uri: baseUri,
             method: 'GET'
           },
           function (err, res, body)
-          {*/
+          {
             var nbc = body.indexOf("\"logo\": \"") + 9;
             var nbd = body.indexOf("\",\n\"banner");
             var logo = body.substring(nbc, nbd);
@@ -84,8 +84,8 @@ function requestTwitch(name, i)
               lg: logo
             };
           _dataStreamer.push(obj);
-          /*}
-        });*/
+          }
+        });
       }
       else
       {
