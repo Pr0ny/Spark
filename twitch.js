@@ -84,7 +84,6 @@ function requestTwitch(name, i)
               lg: logo
             };
           _dataStreamer.push(obj);
-          }
         });
       }
       else
