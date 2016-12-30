@@ -63,8 +63,8 @@ function requestTwitch(name, i)
   	{
       if (body.substring(1, 14) == "\"stream\":null")
       {
-        var basUri = "https://api.twitch.tv/kraken/channel";
-        var dataa = _request({
+        var basUri = "https://api.twitch.tv/kraken/channels/" + name;
+        var data = _request({
             headers: {
             'Client-ID': _cId,
             'Content-Type': 'application/json'
