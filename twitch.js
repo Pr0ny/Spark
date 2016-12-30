@@ -77,7 +77,7 @@ function requestTwitch(name, i)
             var nbc = body.indexOf("\"logo\": \"") + 9;
             var nbd = body.indexOf("\",\n\"banner");
             var logo = body.substring(nbc, nbd);
-            console.log(name + " is offline");
+            console.log("LOGO ====== " + logo);
             var obj = {
               sn: name,
               ic: 0,
