@@ -114,6 +114,8 @@ $(document).ready(function() {
                     data = "<div id='" + res[i] + "' class='item'><img class='imgmoins' id='" + res[i] + "' src='css/img/icon.png'></div>";
                     var content = '<div class="owl-item">' + data + '</div>';
                     owl.trigger('add.owl', [$(content), i]);
+                    $(('#' + res[i])).css('background-image', ("url(" + localStorage.getItem(res[i]) + ")"));
+                    $(('#' + res[i])).css('background-size', '100% 100%');
                     i++;
                 }
             }
@@ -211,12 +213,17 @@ $(document).ready(function() {
                         data = "<div id='" + exData[i]['sn'] + "' class='item'><img class='imgmoins' id='" + exData[i]['sn'] + "' src='css/img/icon.png'></div>";
                         var content = '<div class="owl-item">' + data + '</div>';
                         owl.trigger('add.owl.carousel', [$(content), i])
+                        $(('#' + exData[i]['sn'])).css('background-image', ("url(" + localStorage.getItem(exData[i]['sn']) + ")"));
+                        $(('#' + exData[i]['sn'])).css('background-size', '100% 100%');
                     }
                     else
                     {
                         data = "<div id='" + exData[i]['sn'] + "' class='item2'><img class='imgmoins' id='" + exData[i]['sn'] + "' src='css/img/icon.png'></div>";
                         var content = '<div class="owl-item">' + data + '</div>';
                         owl.trigger('add.owl.carousel', [$(content), i])
+                        console.log("ici = " + exData[i]['sn']);
+                        $(('#' + exData[i]['sn'])).css('background-image', ("url(" + localStorage.getItem(exData[i]['sn']) + ")"));
+                        $(('#' + exData[i]['sn'])).css('background-size', '100% 100%');
                     }
                     i++;
                 }
@@ -325,6 +332,7 @@ $(document).ready(function() {
             i++;
             j++;
         }
+        localStorage.removeItem(follow);
         localStorage.follow = resTab.toString();
         location.reload();        
     });
