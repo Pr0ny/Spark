@@ -67,21 +67,26 @@ function requestTwitch(name, i)
         var obj = {
           sn: name,
           ic: 0,
-          st: ""
+          st: "",
+          lg: "",
         };
         _dataStreamer.push(obj);
       }
       else
       {
         console.log(name + " is online");
+        var nbc = body.indexOf("\"logo\":\"") + 8;
+        var nbd = body.indexOf("\",\"banner");
         var nba = body.indexOf("\"status\":\"") + 10;
         var nbb = body.indexOf("\",\"broadcaster");
+        var logo = body.substring(nbc, nbd);
         var sub = body.substring(nba, nbb);
         //console.log("nba = " + nba + " nbb = " + nbb + " |  sub = " + sub);
         var obj = {
           sn: name,
           ic: 1,
-          st: sub
+          st: sub,
+          lg: logo
         };
         if (checkPresence(name) == false)
           _dataStreamer.push(obj);

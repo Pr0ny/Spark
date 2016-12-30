@@ -1,6 +1,7 @@
 var hone = io.connect("http://spark-esport.cleverapps.io/");
 
 var addfollow = document.getElementById("plus");
+var unfollow = document.getElementById("moins");
 var save = "";
 adminLog = []
 exData = [];
@@ -13,13 +14,23 @@ if (localStorage.follow)
     spl = localStorage.follow.split(",");
 
 for (var k = 0, len = spl.length; k < len; k++) {
-    var obj = {
-        sn: spl[k],
-        ic: 0
-    };
-    exData.push(obj);
+    if (spl[k])
+    {
+        console.log(spl[k]);
+        var obj = {
+            sn: spl[k],
+            ic: 0,
+            st: "",
+            lg: ""
+        };
+        exData.push(obj);
+    }
 }
 
+$("#txtBox").hide();
+$("#confirm").hide();
+
+$("#titre").css("text-align", "center");
 
 $(document).ready(function()
 {
@@ -63,18 +74,14 @@ $(document).ready(function(){
     loop:false,
     margin:-50,
     nav:true,
-    navText: ["<img class='fleche1' src='ICONS/fleche.png'>","<img class='fleche2' src='ICONS/fleche_2.png'>"],
+    navText: ["<img class='fleche1' src='css/img/fleche.png'>","<img class='fleche2' src='css/img/fleche_2.png'>"],
     });
 });
 
-//////// TIME OUT POUR LA FLECHE D'EXPLICATION \\\\\\\
+//// APPARITION DU LOGO \\\\\\\
 
-var logo = setTimeout(function(){
-    $("#help").fadeToggle("fast");
-    $(".fleche").fadeToggle("fast");
-    $(".logo1").fadeToggle("slow");
-    $(".logo2").fadeToggle("slow");
-}, 15000);
+$(".logo1").fadeToggle("slow");
+$(".logo2").fadeToggle("slow");
 
 //////// FONCTIONS DE GESTION DU CAROUSEL \\\\\\
 
@@ -90,28 +97,12 @@ $(document).ready(function() {
     nav:true,
   });*/
 
-////// GESTION DU TITRE \\\\\\\\
-
-    if (localStorage.streamer == "null")
-        $("#titre").text("SPARK")
-    else
-        {
-            $('#titre').text(localStorage.streamer);
-            if (localStorage.streamer == "domingo.tv")
-                $('#titre').text("domingo");
-            if (localStorage.streamer == "corobizar.com")
-                $('#titre').text("corobizar");
-            if (localStorage.streamer == "zerator.com")
-                $('#titre').text("zerator");
-            if (localStorage.streamer == "skyyart.fr")
-                $('#titre').text("skyyart");
-        }
-    $("#titre").css("text-align", "center")
 
 //////////// SET CAROUSEL AU LANCEMENT \\\\\\\\\\\\
 
     function set_carousel()
     {
+        owl.trigger('del.owl', [0]);
         if (localStorage.follow)
         {
             if (localStorage.follow.localeCompare(save) != 0)
@@ -120,9 +111,9 @@ $(document).ready(function() {
                 var i = 0;
                 while (res[i])
                 {
-                    data = "<div id='" + res[i] + "' class='item'><h4>" + res[i] + "</h4></div>";
+                    data = "<div id='" + res[i] + "' class='item'><img class='imgmoins' id='" + res[i] + "' src='css/img/icon.png'></div>";
                     var content = '<div class="owl-item">' + data + '</div>';
-                    owl.trigger('add.owl', [$(content), 0]);
+                    owl.trigger('add.owl', [$(content), i]);
                     i++;
                 }
             }
@@ -171,7 +162,6 @@ $(document).ready(function() {
             });
         }
 
-
             var get_data = setTimeout(function()
             {
                 hone.emit("streamers", {streamers: localStorage.follow})
@@ -208,12 +198,8 @@ $(document).ready(function() {
     {
         if (exData[0]['sn'].localeCompare("null") != 0)
         {
-            console.log(saved);
-            console.log(total);
             if (saved != total)
             {
-                console.log("saved = ", saved)
-                console.log("total = ", total)
                 delete_carousel();
                 hone.emit("streamers", {streamers: localStorage.follow});
                 var i = 0;
@@ -222,15 +208,15 @@ $(document).ready(function() {
                     myUrl = "https://www.twitch.tv/" + exData[i]['sn'];
                     if (exData[i]['ic'] == 0)
                     {
-                        data = "<div id='" + exData[i]['sn'] + "' class='item'><h4 id ='" + exData[i]['sn'] +"'>" + exData[i]['sn'] + "</h4></div>";
+                        data = "<div id='" + exData[i]['sn'] + "' class='item'><img class='imgmoins' id='" + exData[i]['sn'] + "' src='css/img/icon.png'></div>";
                         var content = '<div class="owl-item">' + data + '</div>';
-                        owl.trigger('add.owl.carousel', [$(content), 0])
+                        owl.trigger('add.owl.carousel', [$(content), i])
                     }
                     else
                     {
-                        data = "<div id='" + exData[i]['sn'] + "' class='item2'><h4 id='" + exData[i]['sn'] + "'>" + exData[i]['sn'] + "</h4></div>";
+                        data = "<div id='" + exData[i]['sn'] + "' class='item2'><img class='imgmoins' id='" + exData[i]['sn'] + "' src='css/img/icon.png'></div>";
                         var content = '<div class="owl-item">' + data + '</div>';
-                        owl.trigger('add.owl.carousel', [$(content), 0])
+                        owl.trigger('add.owl.carousel', [$(content), i])
                     }
                     i++;
                 }
@@ -241,16 +227,45 @@ $(document).ready(function() {
     }
     }
 
-    if (val <= 1)
-    {
+        $(".item2").off()
         $(".item2").click(function(){
             chrome.tabs.create({
                 url: "https://www.twitch.tv/" + event.target.id,
                 selected: true,
             })
         });
-        val++;
-    }
+        $(".item2").mouseover(function()
+        {
+            if (event.target.id)
+            {
+                $("#titre").text(event.target.id.toUpperCase());
+                $("#titre").css("text-align", "center");
+            }
+        });
+        $(".item2").mouseout(function()
+        {
+            if (event.target.id)
+            {
+                $("#titre").text("SPARK");
+                $("#titre").css("text-align", "center");
+            }
+        });
+        $(".item").mouseover(function()
+        {
+            if (event.target.id)
+            {
+                $("#titre").text(event.target.id.toUpperCase());
+                $("#titre").css("text-align", "center"); 
+            }
+        });
+        $(".item").mouseout(function()
+        {
+            if (event.target.id)
+            {
+                $("#titre").text("SPARK");
+                $("#titre").css("text-align", "center");
+            }
+        });
     }
 
     function time_this()
@@ -290,5 +305,27 @@ $(document).ready(function() {
             console.log(res);
             console.log(localStorage.follow);
         }
+    });
+
+    $(".imgmoins").click(function(){
+        var i = 0;
+        var j = 0;
+        var resTab = [];
+        var tab_follow;
+        var name = event.target.id;
+        tab_follow = localStorage.follow.split(",")
+        while (tab_follow[i])
+        {
+            if (tab_follow[i] == name)
+            {
+                console.log(tab_follow[i])
+                i++;
+            }
+            resTab[j] = tab_follow[i]
+            i++;
+            j++;
+        }
+        localStorage.follow = resTab.toString();
+        location.reload();        
     });
 });

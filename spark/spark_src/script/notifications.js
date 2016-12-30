@@ -28,7 +28,9 @@ if (localStorage.follow)
 for (var k = 0, len = spl.length; k < len; k++) {
     var obj = {
         sn: spl[k],
-        ic: 0
+        ic: 0,
+        st: "",
+        lg: ""
     };
     exData.push(obj);
 }
@@ -79,7 +81,7 @@ hone.on("setLive", function(data) {
                             type: "basic",
                             title: "Live is on !",
                             message: (data[i]['sn'] + " est en live !"),
-                            iconUrl: "ICONS/logo-03.png",
+                            iconUrl: data[i]['lg'],
                         }
                         if (data[i]['sn'] == "artheontv") {
                             _opt = {

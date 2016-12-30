@@ -23,7 +23,7 @@
     "storage",
     "activeTab",
     "https://ajax.googleapis.com/",
-    "https://spark-extension.herokuapp.com/*"
+    "https://spark-esport-dev.cleverapps.io/*"
   ],
   "icons": {
       "128" : "ICONS/logo-03.png"

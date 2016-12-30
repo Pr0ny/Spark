@@ -1,8 +1,12 @@
-* {
-    margin:             0px;
-    padding:            0px;
+ /*---------------------------  Extension codé par SPARK --------------------------- */
 
-}
+/* ---------------------------
+
+
+FONT
+
+
+--------------------------- */
 
 @font-face {
     font-family: 'PROXIMANOVA-BLACK';
@@ -20,132 +24,85 @@
     font-style: normal;
 }
 
+/* ---------------------------
+
+
+ALL
+
+
+--------------------------- */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ---------------------------
+
+
+TEXTE
+
+
+--------------------------- */
+
 h1 {
-    font-family:    'PROXIMANOVA-BLACK', sans-serif, Arial;
-    text-align:     left;
-    font-size:      40px;
-    color:          #C3C3C3;
-    background: #f3f3f3;
+    font-family: 'PROXIMANOVA-BLACK', sans-serif, Arial;
+    text-align: left;
+    font-size: 40px;
+    color: #FCC922;
+    background: #EBEBEB;
     padding-top: 18px;
 }
 
 h4 {
-    font-family:    'PROXIMANOVA-BLACK', sans-serif, Arial;
-    position:   absolute;
-    text-align: center;
-    left:       8px;
-    top:        22px;
-    color:      #F70572;
-    font-size: 15px;
-    -webkit-transition: all 0.5s ease;
     opacity: 0;
 }
 
-h3 {
-      font-family:  'PROXIMANOVA-LIGHT', sans-serif, Arial;
-    position:   absolute;
-    left:       115px;
-    top:        270px;
-    color:      #F70572;
-    font-size: 15px;
-
-}
-    
-.logo1  {
-    display:    none;
-    position:   absolute;
-    top:        280px;
-    left:       80px;
-    width:      70px;
-    height:     70px;
-    border:     9px solid #F70572;
-    background: #f3f3f3;
+.titre {
+    width: 305px;
+    height: 50px;
 }
 
-.logo2  {
-    display:    none;
-    position:   absolute;
-    top:        280px   ;
-    left:       176px;
-    width:      32px;
-    height:     32px;
-    border:     8px solid #FCC922;
-    background: #f3f3f3;
+/* ---------------------------
+
+
+LOGO + Bandeau
+
+
+--------------------------- */
+
+.imgmoins {
+    width: 25px;
+    height: 25px;
 }
 
-.item:hover h4{
-    font-family:    'PROXIMANOVA-BLACK', sans-serif, Arial;
-    position:   absolute;
-    left:       0px;
-    top:        25px;
-    color:      #F70572;
-    font-size: 15px;
-    opacity: 1;
+.logo1 {
+    display: none;
+    position: absolute;
+    top: 230px;
+    left: 50px;
+}
+
+.logo1 img {
+    height: 195px;
+    width: 195px;
+}
+
+.item {
+    border: 7px solid rgba(252, 201, 34, 0);
+    width: 50px;
+    height: 50px;
+    background-image: url(img/128pxgray.png);
+    background-repeat: no-repeat;
     -webkit-transition: all 0.5s ease;
-    z-index: 80;
-}
-
-.item  {
-    border:         7px solid #FCC922;
-    width:          50px;
-    height:         50px;   
-    background: #f3f3f3;
 }
 
 .item2 {
-    border:         7px solid #F70572;
-    width:          50px;
-    height:         50px;   
-    background: #f3f3f3;
-}
-
-.item2:hover h4{
-    font-family:    'PROXIMANOVA-BLACK', sans-serif, Arial;
-    position:   absolute;
-    left:       0px;
-    top:        25px;
-    color:      #FCC922;
-    font-size: 15px;
-    opacity: 1;
-    -webkit-transition: all 0.5s ease;
-    z-index: 80;
-}
-
-
-.twitter {
-    position:           absolute;
-    left:               152px;
-    top:                548px;
-    background: #f3f3f3;
-}
-
-.streamer {
-    border-radius:      7px;
-    position:           absolute;
-    left:               40%;
-    top:                162px;
-    background: #f3f3f3;
-}
-
-.plus {
-    position:           absolute;
-    left:               15px;
-    top:                480px;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0px;
-    font-family: Arial;
-    color: #000000;
-    font-size: 34px;
-    background: #f3f3f3;
-    padding: 2px 12px 2px 12px;
-    border: solid #f70572 6px;
-    text-decoration: none;
-    -webkit-transition: all 0.5s ease;
-}
-
-.plus:hover {   
-    -webkit-transform: rotate(90deg);
+    border: 7px solid rgba(252, 201, 34, 0);
+    width: 50px;
+    height: 50px;
+    background-image: url(img/128px.png);
+    background-repeat: no-repeat;
     -webkit-transition: all 0.5s ease;
 }
 
@@ -153,52 +110,196 @@ h3 {
     height: 15px;
     width: 10px;
     position: relative;
-    top: -7px;
-    left: 8px;
+    top: 0px;
+    left: 20px;
 }
 
 .fleche2 {
     height: 15px;
     width: 10px;
     position: relative;
-    top: -7px;
-    left: 15px;
+    top: 0px;
+    left: 5px;
 }
 
-.titre  {
-    width:              305px;
-    height:             50px;
-    background: #f3f3f3;
+/* ---------------------------
+
+
+Display
+
+
+--------------------------- */
+
+.twitter {
+    position: absolute;
+    left: 152px;
+    top: 548px;
 }
 
-.streamers  {
+.streamer {
+    border-radius: 7px;
+    position: absolute;
+    left: 40%;
+    top: 162px;
+}
+
+.streamers {
     padding-top: 30px;
-    width:              305px;
-    height:             70px;
-    background: #f3f3f3;
+    width: 305px;
+    height: 70px;
+    background: #EBEBEB;
 }
 
 .contenue {
-    width:              305px;
-    height:             400px;
-    background: #f3f3f3;
+    width: 305px;
+    height: 400px;
+    background: #EBEBEB;
     z-index: 0;
 }
 
-div:hover+div+div .logo1 {
-   -webkit-transform: rotate(90deg);
-   -webkit-transition: all 0.5s ease;
-    
+/* ---------------------------
+
+
+Interface
+
+
+--------------------------- */
+
+.moins {
+    position: absolute;
+    left: 10px;
+    top: 425px;
+    color: #FCC922;
+    background: #020303;
+    padding: 4px 12px 6px 12px;
+    text-decoration: none;
+    border: 0px;
+    font-size: 37px;
+    -webkit-transition: all 0.5s ease;
+    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
 }
 
-div:hover+div+div .logo2 {
-   -webkit-transform: rotate(-90deg);
-   -webkit-transition: all 0.5s ease;
-    
+.moins img {
+    height: 30px;
 }
 
-.fleche { position: absolute;
-    top: 300px;
-    left: -5px;
-     -webkit-transform: rotate(-10deg);
-width:175px;}
+.moins+p {
+    font-family: 'PROXIMANOVA-LIGHT', sans-serif, Arial;
+    opacity: 0;
+    position: absolute;
+    left: 65px;
+    top: 485px;
+    padding: 16px 5px 18px 4px;
+    -webkit-transition: all 0.5s ease;
+    width: 140px;
+    font-size: 16px;
+    color: #FCC922;
+    background: #020303;
+    text-align: center;
+    visibility: hidden;
+    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
+}
+
+.moins:hover+p {
+    left: 75px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.moins+p strong {
+    font-family: 'PROXIMANOVA-BOLD', sans-serif, Arial;
+}
+
+.plus {
+    position: absolute;
+    left: 10px;
+    top: 485px;
+    color: #FCC922;
+    background: #020303;
+    padding: 4px 12px 6px 12px;
+    text-decoration: none;
+    border: 0px;
+    font-size: 37px;
+    -webkit-transition: all 0.5s ease;
+    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
+}
+
+.plus img {
+    height: 30px;
+}
+
+.plus+p {
+    font-family: 'PROXIMANOVA-LIGHT', sans-serif, Arial;
+    opacity: 0;
+    position: absolute;
+    left: 65px;
+    top: 485px;
+    padding: 16px 5px 18px 4px;
+    -webkit-transition: all 0.5s ease;
+    width: 140px;
+    font-size: 16px;
+    color: #FCC922;
+    background: #020303;
+    text-align: center;
+    visibility: hidden;
+    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
+}
+
+.plus:hover+p {
+    left: 75px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.plus+p strong {
+    font-family: 'PROXIMANOVA-BOLD', sans-serif, Arial;
+}
+
+/* ---------------------------
+
+
+Twitter
+
+
+--------------------------- */
+
+#twitter img {
+    position: absolute;
+    left: 235px;
+    top: 485px;
+    height: 40px;
+    -webkit-transition: all 0.5s ease;
+    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
+    background: #020303;
+    padding: 6px 6px 6px 6px;
+}
+
+#twitter p {
+    font-family: 'PROXIMANOVA-LIGHT', sans-serif, Arial;
+    opacity: 0;
+    position: absolute;
+    left: 85px;
+    top: 485px;
+    padding: 16px 5px 18px 4px;
+    -webkit-transition: all 0.5s ease;
+    width: 140px;
+    background: #020303;
+    text-align: center;
+    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
+    visibility: hidden;
+}
+
+#twitter strong {
+    font-family: 'PROXIMANOVA-BOLD', sans-serif, Arial;
+}
+
+#twitter img:hover+p {
+    opacity: 1;
+    left: 75px;
+    -webkit-transition: all 0.5s ease;
+    visibility: visible;
+}
+
+#twitter a {
+    color: #FCC922;
+}
