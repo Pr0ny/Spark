@@ -111,7 +111,8 @@ var lol = io.sockets.on('connection', function(client)
         var obj = {
         sn: spl[i],
         ic: 0,
-        st: ""
+        st: "",
+        lg: ""
         };
         _dataStreamers.push(obj);
       }
