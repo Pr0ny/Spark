@@ -128,7 +128,7 @@ var lol = io.sockets.on('connection', function(client)
       var spl = data['streamers'].split(',');
       for (var i = 0, len = spl.length; i < len; i++)
       {
-        console.log("getLive = " + spl[i]);
+//        console.log("getLive = " + spl[i]);
         for (var j = 0, lenn = _dataStreamers.length; j < lenn; j++)
         {
           //console.log("yolo  =  " + _dataStreamers[j]['sn'] + " " + _dataStreamers[j]['ic']);
@@ -141,7 +141,7 @@ var lol = io.sockets.on('connection', function(client)
             st: _dataStreamers[j]['st'],
             lg: _dataStreamers[j]['lg']
             };
-            console.log(">" + obj['sn'] + " " + obj['ic'] +"<");
+  //          console.log(">" + obj['sn'] + " " + obj['ic'] +"<");
             ret.push(obj);
           }
         }
