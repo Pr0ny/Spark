@@ -73,6 +73,7 @@ function requestTwitch(name, i)
           },
           function (err, res, body)
           {
+            console.log(body);
             var nbc = body.indexOf("\"logo\": \"") + 9;
             var nbd = body.indexOf("\",\n\"banner");
             var logo = body.substring(nbc, nbd);
