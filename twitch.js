@@ -63,23 +63,39 @@ function requestTwitch(name, i)
   	{
       if (body.substring(1, 14) == "\"stream\":null")
       {
-        console.log(name + " is offline");
-        var obj = {
-          sn: name,
-          ic: 0,
-          st: "",
-          lg: "",
-        };
-        _dataStreamer.push(obj);
+        var basUri = "https://api.twitch.tv/kraken/channel";
+        var dataa = _request({
+            headers: {
+            'Client-ID': _cId,
+            'Content-Type': 'application/json'
+            },
+            uri: uri,
+            method: 'GET'
+          },
+          function (err, res, body)
+          {
+            var nbc = body.indexOf("\"logo\": \"") + 9;
+            var nbd = body.indexOf("\",\n\"banner");
+            var logo = body.substring(nbc, nbd);
+            console.log(name + " is offline");
+            var obj = {
+              sn: name,
+              ic: 0,
+              st: "",
+              lg: logo
+            };
+          _dataStreamer.push(obj);
+          }
+        });
       }
       else
       {
         console.log(name + " is online");
         var nbc = body.indexOf("\"logo\":\"") + 8;
         var nbd = body.indexOf("\",\"banner");
+        var logo = body.substring(nbc, nbd);
         var nba = body.indexOf("\"status\":\"") + 10;
         var nbb = body.indexOf("\",\"broadcaster");
-        var logo = body.substring(nbc, nbd);
         var sub = body.substring(nba, nbb);
         //console.log("nba = " + nba + " nbb = " + nbb + " |  sub = " + sub);
         var obj = {

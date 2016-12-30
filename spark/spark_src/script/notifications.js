@@ -68,12 +68,13 @@ hone.on("setLive", function(data) {
                 k++;
             }
         }*/
+        localStorage.setItem(data[i]['sn'], data[i]['lg']);
         if (data[i]['ic'] == 1)
         {
             k = 0;
             while (exData[k])
             {
-                if (data[i]['sn'].localeCompare(exData[k]['sn']) == 0)
+                if (data[i]['sn'] && data[i]['sn'].localeCompare(exData[k]['sn']) == 0)
                 {
                     if (exData[k]['ic'] == 0)
                     {
