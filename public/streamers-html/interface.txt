@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="streamers-html/css/style.css" media="screen">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="streamers-html/js/animation.js"></script>
+<!--------------------------- /// SYSTEME CATALOGUE /// -------------------------->
+
+<div class="catalogue">
+
+    <div>
+        <h1 id="nom_streamer" id="NomStreamer"> STREAMER_NAME </h1>
+        <h2 id="credits"> CREDITS_AMOUNT </h2>
+        <div><img src="streamers-html/css/img/abonnement.png"></div>
+    </div>
+
+
+
+    <!--------------------------- /// CHARGE UNE /// -------------------------->
+
+    <ul class="cadeaux_jeux_charge" id="charge_1">
+      GIVEAWAYS_LIST
+    </ul>
+
+
+    <!--------------------------- /// POP UP CATALOGUE /// -------------------------->
+
+    <div class="popup">
+        <section>
+            <p> + </p>
+            <h1>Abonnement </h1>
+            <article>
+                <img src="streamers-html/css/img/abonnement_1.png">
+
+                <h3>20 Euros</h3>
+
+                <h4> L'offre à 20 euros vous donne accès simplement accès à plus de crédit pour avoir plus de giveaway.
+            </h4>
+            </article>
+
+            <article>
+                <img src="streamers-html/css/img/abonnement_2.png">
+
+                <h3> 50 Euros</h3>
+
+                <h4> Quand tu veux peser dans le game, mais que tu fais game à ta twitch-mo ney</h4>
+            </article>
+            <article>
+                <img src="streamers-html/css/img/abonnement_3.png">
+
+                <h3> 100 Euros</h3>
+
+                <h4> LE mega-abonnement de roxxor. Mais pour l'instant il est en vacances. </h4>
+            </article>
+            <article>
+                <img src="streamers-html/css/img/abonnement_4.png">
+
+                <h3>Boost crédit</h3>
+
+                <h4> Et celui-ci non plus :(. #l'argentmaispastrop </h4>
+            </article>
+        </section>
+
+    </div>
+
+ <!--------------------------- /// MENU CATALOGUE /// -------------------------->
+
+    <article class="menu">
+
+        <h2> CHAINE </h2>
+        <h3> STREAMER_LINK </h3>
+        <h2> PSEUDO </h2>
+        <h3> STREAMER_NAME </h3>
+        <h2> NOUS CONTACTER</h2>
+        <h3> <a href="https://twitter.com/SparkExtension"> Twitter</a></h3>
+
+        <p>+</p>
+
+    </article>
+
+    <aside class="fond"></aside>
+
+</div>
+<!--------------------------- /// CHOIX DU JEUX /// -------------------------->
+
+<div class="choix_jeux_giveaway" class="jeux">
+    <section>
+        <p> ▼ </p>
+        <h1>Choix d'un jeu </h1>
+
+        <section>
+            <article>
+                <h2 id="grattage"></h2>
+            </article>
+
+            <article>
+                <h2 id="casino"></h2>
+            </article>
+        </section>
+
+        <section>
+
+            <article>
+                <h2 id="diceroll"></h2>
+            </article>
+
+            <article>
+                <h2></h2>
+            </article>
+        </section>
+
+    </section>
+</div>
+
+<!--------------------------- /// TEMPS + RETOUR /// -------------------------->
+
+<div class="timer">
+    <section>
+
+        <h1>Jeux en cours </h1>
+
+        <aside id="giveawayImg"></aside>
+        <aside></aside>
+
+        <h2>Giveaway</h2>
+        <h2>Jeux</h2>
+
+        <h3 id="giveawayName"></h3>
+        <h3 id="gameName"></h3>
+
+        <h2>Temps restants</h2>
+        <h3 id ="timerGame">01:00</h3>
+
+        <h2>Gagnant</h2>
+        <h3 id="winnerName"><br></h3>
+
+        <h2>Message</h2>
+        <h3 id="winnerMessage"><br></h3>
+
+        <p id="goMenu"> Giveaway terminé</p>
+
+    </section>
+</div>

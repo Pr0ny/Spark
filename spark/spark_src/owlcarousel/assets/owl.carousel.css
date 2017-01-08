@@ -85,7 +85,7 @@
 .owl-prev {
   position: absolute;
   left: 0px;
-  top:  8px;
+  top:  4px;
   font-size: 50px;
   color:      black;
 }
@@ -93,7 +93,7 @@
 .owl-next {
   position: relative;
   left:       270px;
-  top:        8px;
+  top:        4px;
   font-size:  50px;
   color:      black;
 }
@@ -135,9 +135,12 @@
   user-select: none;
 }
 .owl-carousel .owl-item img {
-  display: block;
-  /*width: 100%;*/
-  -webkit-transform-style: preserve-3d;
+    margin-top: 35px;
+    margin-left: 35px;
+    width: 15px;
+    height: 15px;
+    display: block;
+    -webkit-transform-style: preserve-3d;
 }
 .owl-carousel.owl-text-select-on .owl-item {
   -webkit-user-select: auto;

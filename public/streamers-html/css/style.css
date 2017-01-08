@@ -1,0 +1,985 @@
+/* ---------------------------  Extension codé par SPARK --------------------------- */
+
+
+/* ---------------------------
+
+
+FONT
+
+
+--------------------------- */
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('Roboto-Boldk.otf');
+    src: url('Roboto-Bold.eot') format('truetype'), url('Roboto-Bold.woff') format('woff'), url('Roboto-Bold.svg') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('Roboto-Light.otf');
+    src: url('Roboto-Light.eot') format('truetype'), url('Roboto-Light.woff') format('woff'), url('Roboto-Light.svg') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* ---------------------------
+
+
+ALL
+
+
+--------------------------- */
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+}
+
+body,
+html {
+    font-size: 1em;
+    margin: center;
+    font-smooth: always;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ---------------------------
+
+
+
+ SYSTEME CONNEXION
+
+
+
+--------------------------- */
+
+.connexion {
+    top: 0px;
+    left: -610px;
+    height: 600px;
+    width: 610px;
+    position: fixed;
+    z-index: 85;
+    opacity: 1;
+    visibility: visible;
+    background: url(img/background_inscritpion.gif);
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.connexion img {
+    position: absolute;
+    top: 20px;
+    left: 205px;
+    height: 200px;
+    width: 200px;
+}
+
+.connexion fieldset {
+    margin-top: 45%;
+    text-align: center;
+    border: 0;
+    background: rgba(255, 255, 255, 0.91);
+    margin-left: 160px;
+    width: 290px;
+    padding-top: 19px;
+    padding-bottom: 10px;
+    border-radius: 2px;
+}
+
+.connexion input {
+    margin-left: 10%;
+    width: 80%;
+    margin-right: 10%;
+    font-size: 15px;
+    height: 30px;
+    border: 0;
+    background: none;
+    outline: none;
+    color: #212121;
+    border-bottom: 2px solid #212121;
+    margin-bottom: 20px;
+    padding-bottom: -10px;
+}
+
+.connexion input::-webkit-input-placeholder {
+    color: #212121;
+    font-family: 'Roboto-Light';
+}
+
+.connexion fieldset+div input {
+    margin-left: 210px;
+    text-align: center;
+    width: 190px;
+    font-family: 'Roboto-Light';
+    border: 0;
+    height: 45px;
+    color: #F1F1F1;
+    margin-top: 17px;
+    background: #212121;
+    font-size: 20px;
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 2px;
+        cursor: pointer;
+}
+
+.connexion fieldset+div input:hover {
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    color: #fcc922;
+}
+
+
+/* ---------------------------
+
+
+
+ SYSTEME CATALOGUE PARTIE 1 : ALL
+
+
+
+--------------------------- */
+
+.catalogue {
+background-image: url(img/background.png);
+    top: 0px;
+    left: 0px;
+    height: 600px;
+    width: 610px;
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    position: fixed;
+    z-index: 80;
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+}
+
+.catalogue div {
+    width: 610px;
+    background: #424242;
+    height: 60px;
+}
+
+.catalogue div:after {
+    content: " ";
+    position: fixed;
+    top: 60px;
+    left: 0%;
+    width: 610px;
+    background: #212121;
+    height: 10px;
+    z-index: 81;
+}
+
+.catalogue div #nom_streamer {
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    font-family: 'Roboto-Light';
+    color: #F1F1F1;
+    height: 40px;
+    position: absolute;
+    left: 5.3%;
+    padding-top: 14px;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.catalogue div #nom_streamer:hover {
+    color: #fcc922;
+}
+
+.catalogue div h2 {
+    font-family: 'Roboto-Bold';
+    color: #F1F1F1;
+    position: absolute;
+    left: 80%;
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 100;
+    padding: 5px 5px;
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    border-bottom: 5px solid #424242;
+    cursor: pointer;
+}
+
+.catalogue div h2:hover {
+    left: 78%;
+    border-bottom: 5px solid #fcc922;
+    color: #fcc922;
+}
+
+.catalogue div h2:hover:after {
+     left: 58px;
+     -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.catalogue div h1+h2:after {
+    content: "+";
+    color: #F1F1F1;
+    font-size: 35px;
+    position: absolute;
+    top: -17px;
+    left: 55px;
+     -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.catalogue div h1+h2+div img {
+    height: 30px;
+    width: 30px;
+    padding-top: 15px;
+    margin-left: 90%;
+        -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ---------------------------
+
+
+
+ SYSTEME CATALOGUE PARTIE 2 : LISTE DE JEUX DISPONIBLE
+
+
+
+--------------------------- */
+
+/* ---------------------------
+
+
+
+ SYSTEME CATALOGUE PARTIE 3 : CHARGEMENT LISTE FONCTION JEUX SELECTIONNE
+
+
+
+--------------------------- */
+
+.cadeaux_jeux_charge {
+    position: absolute;
+    top: 75px;
+    height: 85%;
+    width:580px;
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 13px;
+    padding-bottom: 30px;
+    margin: auto;
+    z-index: 15;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: url(img/background.png);
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.cadeaux_jeux_charge li {
+    float: left;
+    height: 16%;
+    width: 90%;
+    margin-left: 3%;
+    margin-bottom: 2%;
+    padding: 3%;
+    background: #DBDCDC;
+    list-style-type: none;
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.cadeaux_jeux_charge li:last-child {
+    margin-bottom: 5%;
+}
+
+.cadeaux_jeux_charge li:hover {
+    height: 30%;
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.cadeaux_jeux_charge li img {
+    position: inherit;
+    height: 80px;
+    width: 80px;
+    padding-top: 0px;
+}
+
+.cadeaux_jeux_charge li img+h1 {
+    font-family: 'Roboto-Light';
+    height: 40px;
+    top: -85px;
+    position: relative;
+    font-size: 18px;
+    margin-left: 130px;
+    color: #212121;
+}
+
+.cadeaux_jeux_charge li img+h1+img {
+    width: 40px;
+    height: 40px;
+    top: -90px;
+    font-size: 40px;
+    margin-left: 130px;
+    position: relative;
+    padding-top: 5px;
+    opacity: 0;
+}
+
+.cadeaux_jeux_charge li img+h1+img+p {
+    font-family: 'Roboto-Light';
+    height: 27px;
+    padding: 5px;
+    top: -138px;
+    position: relative;
+    font-size: 30px;
+    left: 120px;
+}
+
+.cadeaux_jeux_charge li img+h1+img+p img {
+position: relative;
+    top: 5px;
+    height: 30px;
+    width:30px;
+}
+
+.cadeaux_jeux_charge li img+h1+img+p+h2 {
+    font-family: 'Roboto-Light';
+    color: #424242;
+    height: 40px;
+    top: -120px;
+    position: relative;
+    font-size: 15px;
+    margin-left: 130px;
+    opacity: 0;
+    -webkit-transition: all 200ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 300px;
+    letter-spacing: -1px;
+}
+
+.cadeaux_jeux_charge li:hover img+h1+img+p+h2 {
+    top: -115px;
+    opacity: 1;
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.cadeaux_jeux_charge li img+h1+img+p+h2+article {
+    height: 25px;
+    width: 25px;
+    background: #F1F1F1;
+    position: relative;
+    top: -260px;
+    left: 500px;
+    -webkit-transition: all 100ms cubic-bezier(0.19, 1, 0.22, 1);
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.cadeaux_jeux_charge li:hover img+h1+img+p+h2+article {
+    left: 430px;
+    height: 38px;
+    width: 90px;
+    -webkit-transition: all 200ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: #fcc922;
+}
+
+.cadeaux_jeux_charge li:hover img+h1+img+p+h2+article:hover {
+    -webkit-transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: #212121;
+}
+
+.cadeaux_jeux_charge li img+h1+img+p+h2+article p {
+    font-family: 'Roboto-Light';
+    position: relative;
+    font-size: 20px;
+    color: #212121;
+     -webkit-transition: all 50ms cubic-bezier(0.23, 1, 0.32, 1);
+    padding: 10px;
+    opacity: 0;
+    width: 100px;
+    margin-left: -35px;
+    top:-5px;
+}
+
+.cadeaux_jeux_charge li:hover img+h1+img+p+h2+article:hover p {
+  color: #fcc922;
+}
+
+
+.cadeaux_jeux_charge li:hover img+h1+img+p+h2+article p {
+    margin-left: 0px;
+ -webkit-transition: all 50ms cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 1;
+}
+
+.cadeaux_jeux_charge+div:before {
+    content: " ";
+    top: 0px;
+    left: 0px;
+    border-width: 0px 0px 0 0px;
+}
+
+#indisponible {
+    opacity : 0.4;
+    pointer-events: none;
+}
+
+/* ---------------------------
+
+
+
+ SYSTEME CATALOGUE PARTIE 4 : POP UP ABONNEMENT
+
+
+
+--------------------------- */
+
+.catalogue .popup {
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: #424242;
+    top: 0px;
+    left: 850px;
+    height: 600px;
+    width: 610px;
+    position: fixed;
+    z-index: 83;
+    visibility: visible;
+}
+
+.popup section {
+    opacity: 1;
+    background: #F1F1F1;
+    margin-left: 75px;
+    height: 605px;
+    width: 535px;
+    padding-left: 10px;
+    background-image: url(img/background.png);
+}
+
+.popup section p {
+    font-family: 'Roboto-Bold';
+    position: absolute;
+    left:565px;
+    top:-15px;
+    width: 10px;
+    font-size: 30px;
+    padding-top: 35px;
+    padding-bottom: 10px;
+    color: #212121;
+    transform: rotate(-45deg);
+     cursor: pointer;
+}
+
+.popup section h1 {
+    width: 80%;
+    padding-top: 18px;
+    margin-left: 25px;
+    position: inherit;
+    font-size: 30px;
+    padding-bottom: 20px;
+    color: #212121;
+    letter-spacing: -1px;
+    font-family: 'Roboto-Light';
+    font-size: 25px;
+}
+
+.popup section article {
+    height: 120px;
+    width: 90%;
+    opacity: 1;
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 0.3;
+    background: rgba(241, 241, 241, 0.28);
+    border: 1px solid rgba(252, 201, 34, 0);
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+
+.popup section img+h3 {
+    font-family: 'Roboto-Light';
+    font-size: 20px;
+    position: relative;
+    left: 30%;
+    top: -87px;
+}
+
+.popup section img+h3+h4 {
+    font-family: 'Roboto-Light';
+    position: relative;
+    left: 30%;
+    top: -78px;
+    width: 220px;
+    font-size: 12px;
+}
+
+.popup section h1+article+article img+h3 {
+    position: relative;
+    top: -87px;
+}
+
+.popup section h1+article+article+article img+h3 {
+    position: relative;
+    top: -87px;
+}
+
+.popup section h1+article+article+article+article img+h3 {
+    position: relative;
+    top: -80px;
+}
+
+.popup section h1+article+article img+h3+h4 {
+    position: relative;
+    top: -75px;
+}
+
+.popup section h1+article+article img+h3+h4 {
+    position: relative;
+    top: -78px;
+}
+
+.popup section h1+article+article+article img+h3+h4 {
+    position: relative;
+    top: -78px;
+}
+
+.popup section h1+article+article+article+article img+h3+h4 {
+    position: relative;
+    top: -70px;
+}
+
+.popup section img+h3 strong {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.popup section h1+article+article+article+article img+h3 strong {
+    font-size: 30px;
+}
+
+.popup section img {
+    margin-top: 30px;
+    margin-left: 10px;
+    height: 70px;
+    width: 70px;
+}
+
+.popup:after {
+    width: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup:before {
+    border-width: 0px 0px 0 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup section p+h1:before {
+    transform: rotate(-90deg);
+    content: " ";
+    position: absolute;
+    top: 290px;
+    left: -303px;
+    height: 10px;
+    width: 615px;
+    background: #212121;
+    border-width: 0px 0px 0 0px;
+    opacity: 1;
+}
+
+/* ---------------------------
+
+
+
+ SYSTEME CATALOGUE PARTIE 5 : MENU STREAMER
+
+
+
+--------------------------- */
+
+.popup+.menu {
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: #F1F1F1;
+    top: -700px;
+    left: 150px;
+    height: 355px;
+    width: 305px;
+    position: fixed;
+    z-index: 84;
+    visibility: visible;
+    opacity: 1;
+    background-image: url(img/background.png);
+}
+
+.popup+.menu h2 {
+    font-family: 'Roboto-Bold';
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.popup+.menu h3 {
+    font-family: 'Roboto-Light';
+    text-align: center;
+    font-size: 15px;
+    margin-top: 5px;
+    padding: 4px;
+}
+
+.popup+.menu p {
+    transform: rotate(-45deg);
+     color: #fcc922;
+    font-size: 30px;
+    position: absolute;
+    top: -110px;
+    left: 420px;
+       cursor: pointer;
+}
+
+.popup+.menu a {
+    color: #212121;
+}
+
+.popup+.menu a:hover {
+    color: #fcc922;
+}
+
+.popup+.menu+.fond {
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: #212121;
+    top: -700px;
+    left: 0px;
+    height: 600px;
+    width: 610px;
+    position: fixed;
+    z-index: 83;
+    visibility: visible;
+    opacity: 0.98;
+}
+
+/* ---------------------------
+
+
+
+ SYSTEME CHOIX DU JEUX
+
+
+
+--------------------------- */
+
+.choix_jeux_giveaway {
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: #424242;
+    top: 0px;
+    left: 700px;
+    height: 600px;
+    width: 610px;
+    position: fixed;
+    z-index: 85;
+    visibility: visible;
+}
+
+.choix_jeux_giveaway section {
+    opacity: 1;
+    background: #F1F1F1;
+    margin-top: 60px;
+    width: 610px;
+    height: 540px;
+    padding-left: 10px;
+    background-image: url(img/background.png);
+}
+
+.choix_jeux_giveaway section p {
+    font-family: 'Roboto-Light';
+    position: absolute;
+    top: 12px;
+    width: 10px;
+    font-size: 18px;
+    padding-bottom: 10px;
+    color: #F1F1F1;
+    transform: rotate(90deg);
+    margin-left: 20px;
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.choix_jeux_giveaway section p:hover {
+    margin-left: 10px;
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+    color: #fcc922;
+}
+
+.choix_jeux_giveaway section p+h1 {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-family: 'Roboto-Bold';
+    margin-left: 55px;
+    font-size: 25px;
+    color: #F1F1F1;
+       letter-spacing: 2px;
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.choix_jeux_giveaway:after {
+    width: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.choix_jeux_giveaway:before {
+    border-width: 0px 0px 0 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.choix_jeux_giveaway section p+h1:after {
+    transform: rotate(0deg);
+    content: " ";
+    position: absolute;
+    top: 45px;
+    left: -75px;
+    height: 10px;
+    width: 615px;
+    background: #212121;
+    border-width: 0px 0px 0 0px;
+    opacity: 1;
+}
+
+.choix_jeux_giveaway section section {
+    width: 0px;
+    height: 0px;
+}
+
+.choix_jeux_giveaway section section article {
+    width: 380px;
+    height: 230px;
+    top: 95px;
+    left: 20px;
+    position: absolute;
+    border: 6px solid #fff;
+    background: url(img/jeux_giveaway/jeux_1.png);
+    -webkit-filter: grayscale(90%);
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+       cursor: pointer;
+}
+
+.choix_jeux_giveaway section section article+article {
+    background: url(img/jeux_giveaway/jeux_2.png);
+    top: 95px;
+    left: 200px;
+    -webkit-clip-path: polygon(32% 0, 100% 0%, 100% 100%, 16% 100%);
+}
+
+.choix_jeux_giveaway section section+section article {
+    background: url(img/jeux_giveaway/jeux_3.png);
+    top: 335px;
+    left: 20px;
+}
+
+.choix_jeux_giveaway section section+section article+article {
+    background: url(img/jeux_giveaway/jeux_4.png);
+    top: 335px;
+    left: 200px;
+    -webkit-clip-path: polygon(32% 0, 100% 0%, 100% 100%, 16% 100%);
+}
+
+.choix_jeux_giveaway section section article:hover {
+    -webkit-filter: grayscale(0%);
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ---------------------------
+
+
+
+ SYSTEME TIMER + RETOUR
+
+
+
+--------------------------- */
+
+.timer {
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: #424242;
+    top: 0px;
+    left: 700px;
+    height: 600px;
+    width: 610px;
+    position: fixed;
+    z-index: 85;
+    visibility: visible;
+}
+
+.timer section {
+    opacity: 1;
+    background: #F1F1F1;
+    margin-top: 60px;
+    width: 610px;
+    height: 540px;
+    padding-left: 10px;
+    background-image: url(img/background.png);
+}
+
+.timer section h1 {
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    font-size: 25px;
+    font-family: 'Roboto-Bold';
+    margin-left: 25px;
+    color: #F1F1F1;
+    letter-spacing: 2px;
+    -webkit-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.timer section h2 {
+    font-family: 'Roboto-Light';
+    float: left;
+    width: 200px;
+    font-size: 20px;
+    padding-bottom: 0px;
+    color: #212121;
+    margin-left: 25px;
+    letter-spacing: 2px;
+}
+
+.timer section h2+h2 {
+    margin-left: 80px;
+}
+
+.timer section h2+h2+h3+h3 {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.timer section h2+h2+h3+h3+h2+h3 {
+    margin-left: 80px;
+}
+
+.timer section h2+h2+h3+h3+h2+h3+h2+h3 {
+    margin-left: 80px;
+}
+
+.timer section h2+h2+h3+h3+h2+h3+h2+h3+h2+h3 {
+    margin-left: 80px;
+    font-size: 13px;
+    line-height: 17px;
+    padding-bottom: 5px;
+}
+
+.timer section aside {
+    float: left;
+    width: 260px;
+    height: 150px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 23px;
+    background-image: url(img/produit.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.timer section h3 {
+    font-family: 'Roboto-Light';
+    float: left;
+    width: 200px;
+    font-size: 13px;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: #F1F1F1;
+    margin-left: 23px;
+    border-radius: 2px;
+    margin-right: 43px;
+    background: #212121;
+    padding: 7px 10px;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.timer section p {
+    font-family: 'Roboto-Light';
+    position: absolute;
+    top: 553px;
+    left:315px;
+    font-size: 15px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left:10px;
+    padding-right: 5px;
+    width: 280px;
+    color: #212121;
+    background: #fcc922;
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+       cursor: pointer;
+}
+
+.timer section p:hover {
+
+    left:345px;
+      -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+
+}
+
+
+.timer section h1:before {
+    transform: rotate(0deg);
+    content: " ";
+    position: absolute;
+    top: 47px;
+    left: -45px;
+    height: 10px;
+    width: 625px;
+    background: #212121;
+    border-width: 0px 0px 0 0px;
+    opacity: 1;
+}
+
+/* ---------------------------
+
+
+
+LISTE CHARGE PAR LE MENU : DESIGN SPECIFIQUE SI NECESSAIRE (jquerry)
+
+
+
+--------------------------- */
+
+#charge_1 {
+    -webkit-transition: all 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+    left:0px;
+}
+
+#charge_2 {
+       -webkit-transition: all 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+    left: 700px;
+}
+
+#charge_3 {
+    -webkit-transition: all 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+    left: 700px;
+}
+
+#charge_4 {
+    -webkit-transition: all 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+    left: 700px;
+}
+
+#charge_5 {
+    -webkit-transition: all 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+    left: 700px;
+}

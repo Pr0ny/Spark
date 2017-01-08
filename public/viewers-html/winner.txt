@@ -1,0 +1,34 @@
+<link id="css_base" rel="stylesheet" href="results/css/style.css" media="screen">
+<div class="winner">
+  <div class="connexion">
+   <strong>Tu as gagné le giveaway </strong> </h1>
+    <div>
+        <fieldset>
+            <input type="text" name="pseudo" id="pseudo" required aria-required="true" placeholder="Ton pseudo" />
+            <br>
+            <input type="email" name="pass" id="pass" placeholder="Ton mail" required aria-required="true" />
+            <div>
+                <textarea id="message" maxlength="140" placeholder="Un petit message pour le streameur ?"></textarea>
+            </div>
+        </fieldset>
+        <div>
+            <button class="button">Recevoir le giveaway</button>
+        </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $(".button").click(function () {
+          console.log("Send ThankMessageEventAdmin");
+          hone.emit("ThankMessageEventAdmin", {
+            name: localStorage.streamer,
+            winner_name: $('#pseudo').val(),
+            winner_mail: $('#pass').val(),
+            winner_message: $('#message').val(),
+            code: 0
+          });
+          window.close();
+        });
+      });
+    </script>
+  </div>
+</div>

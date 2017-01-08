@@ -1,0 +1,219 @@
+/* ---------------------------  Extension codé par SPARK --------------------------- */
+
+/* ---------------------------
+
+
+FONT
+
+
+--------------------------- */
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('Roboto-Boldk.otf');
+    src: url('Roboto-Bold.eot') format('truetype'), url('Roboto-Bold.woff') format('woff'), url('Roboto-Bold.svg') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('Roboto-Light.otf');
+    src: url('Roboto-Light.eot') format('truetype'), url('Roboto-Light.woff') format('woff'), url('Roboto-Light.svg') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* ---------------------------
+
+
+ALL
+
+
+--------------------------- */
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+}
+
+body,
+html {
+    font-size: 1em;
+    margin: center;
+    font-smooth: always;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* ---------------------------
+
+
+LOOSER
+
+
+--------------------------- */
+
+.looser .connexion {
+    background: #F1F1F1;
+    top: 0px;
+    left: 0px;
+    height: 600px;
+    width: 305px;
+    position: fixed;
+    z-index: 85;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+   background: url(background.png);
+}
+
+.looser .connexion strong {
+    left:40px;
+    position: absolute;
+    top: 20px;
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 20px;
+    font-family:'Roboto-Light';
+    font-size: 15px;
+    background: #fcc922;
+    padding: 10px;
+    margin-top: 70px;
+}
+
+.looser .connexion button {
+     margin-left: 50px;
+    text-align: center;
+    width: 200px;
+    font-family:'Roboto-Light';
+    border: 0;
+    height: 45px;
+    color: #F1F1F1;
+    margin-top: 505px;
+    background: #212121;
+    font-size: 15px;
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 1px;
+
+}
+
+.looser .connexion button:hover {
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    color: #fcc922;
+}
+
+/* ---------------------------
+
+
+WINNER
+
+
+--------------------------- */
+
+
+.winner .connexion {
+    background: #F1F1F1;
+    top: 0px;
+    left: 0px;
+    height: 600px;
+    width: 305px;
+    position: fixed;
+    z-index: 85;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: url(background.png);
+}
+
+
+.winner .connexion strong {
+    left:40px;
+    position: absolute;
+    top: 20px;
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 20px;
+    font-family:'Roboto-Light';
+    font-size: 15px;
+    background: #fcc922;
+    padding: 10px 20px;
+    margin-top: 70px;
+}
+
+.winner .connexion fieldset {
+    margin-top: 285px;
+    text-align: center;
+    border: 0;
+}
+
+.winner .connexion input {
+    width: 60%;
+    font-size: 15px;
+    height: 30px;
+    border: 0;
+    background: none;
+    outline: none;
+    color: #212121;
+    border-bottom: 2px solid #212121;
+    margin-bottom: 20px;
+    padding-bottom: -10px;
+}
+
+.winner .connexion input::-webkit-input-placeholder {
+    color: #212121;
+     font-family:'Roboto-Light';
+}
+
+.winner .connexion fieldset+div button {
+  margin-left: 50px;
+    text-align: center;
+    width: 200px;
+    font-family:'Roboto-Light';
+    border: 0;
+    height: 45px;
+    color: #F1F1F1;
+    margin-top: 43px;
+    background: #212121;
+    font-size: 15px;
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 1px;
+}
+
+.winner .connexion fieldset+div button:hover {
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    color: #fcc922;
+}
+
+.winner .connexion textarea {
+    width: 60%;
+    font-size: 15px;
+    height: 30px;
+    border: 0;
+    background: none;
+    outline: none;
+    color: #212121;
+    border-bottom: 2px solid #212121;
+    margin-bottom: 7px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.winner .connexion textarea::-webkit-input-placeholder {
+    color: #212121;
+    font-size: 15px;
+    font-family: 'Roboto-Light', sans-serif, Arial;
+}

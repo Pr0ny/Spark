@@ -1,0 +1,55 @@
+<link id="css_base" rel="stylesheet" href="participate/css/style.css" media="screen">
+<section>
+  <div></div>
+  <h1>Giveaway</h1>
+  <img src="GIVEAWAY_LINK">
+  <h2> GIVEAWAY_NAME </h2>
+  <h3 id="timer">30 secondes</h3>
+  <h3 id="participate"> Je participe </h3>
+  <script>
+    var timeLeft = 29;
+    var elem = document.getElementById('timer');
+
+    var timerId = setInterval(countdown, 1000);
+
+    function countdown() {
+      if (timeLeft == 0) {
+        clearTimeout(timerId);
+      } else {
+        elem.innerHTML = timeLeft + ' secondes';
+        timeLeft--;
+      }
+      updateHtml();
+    }
+
+    function generateUUID() {
+      function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      }
+      return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+    }
+
+    $(document).ready(function () {
+      $("#participate").click(function () {
+        $("#participate").html("Patientez...");
+        $("#participate").css("background", "#fcc922");
+        $("#participate").css("border-bottom", "0px");
+        $("#participate:hover").css("color", "#fff");
+        $("#participate:hover").css("margin-top", "0px");
+        localStorage.id = generateUUID();
+        hone.emit("ParticipateEvent", {
+          name: localStorage.streamer,
+          id: localStorage.id
+        });
+        //TODO: only participants join streamer_game's room
+        /*hone.emit("LoginClient", {
+            code: 0,
+            room: localStorage.streamer + "_game"
+        });*/
+      });
+    });
+  </script>
+</section>

@@ -1,179 +1,166 @@
 <!Doctype html>
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="./css/admin.css">
-		<script src="node_modules/jquery.min.js"></script>
-        <script src="node_modules/socket.io.js"></script>
-	</head>
-	<body>
-	    <!--img id="test" src="./img/spark/background/background.png" style="position: absolute"-->
-		<div class="login" id="login">
-    		<input type="text" id="password"/>
-        	<button class="button" onclick="login()">Confirmation</button>
-        </div>
-        <choiceEvent id="choiceEvent">
 
-        </choiceEvent>      	
-        <resultEvent id="resultEvent">
-        	<h1 id="1"></h1>
-        	<h1 id="2"></h1>
-        	<h1 id="3"></h1>
-        	<h1 id="4"></h1>
-        	<h1 id="5"></h1>
-        </resultEvent>
-	</body>
-	<footer>
-		<script type="text/javascript">
-            
-            //Plugin variable
-            var socketio = io.connect("/");
-            //Glabal variable
-            var _streamerName = "";
-            var color = 0;
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/admin.css">
+	<script src="node_modules/jquery.min.js"></script>
+	<script src="node_modules/socket.io.js"></script>
+</head>
 
-            // Login related
-        	function login()
-        	{
-        		var login = $("#password").val();
-                socketio.emit("LoginAdmin", { login : login });
-                console.log("Login send to the server. Waiting for response...");
-        	}
+<body>
+	<div class="connexion">
+		<img src="./css/img/logo.png">
+		<p id="wrongPass" style="display: none">Wrong password !<p>
+		<div>
+			<fieldset>
+				<input type="email" name="pseudo" id="pseudo" required aria-required="true" placeholder="Mail" />
+				<br>
+				<input type="password" name="pass" id="pass" placeholder="Password" required aria-required="true" />
+			</fieldset>
+			<div>
+				<button class="button" onclick="login()">CONFIRMATION</button>
+			</div>
+		</div>
+	</div>
+	<choiceEvent id="choiceEvent"></choiceEvent>
+</body>
+<footer>
+	<script type="text/javascript">
+		var socketio = io.connect("/");
+		var _streamerName = "";
 
-            socketio.on("LoginComplete", function(data)
-            {
-                console.log("Response recieved from the server. code = " + data['code']);
+		// Login related
+		function login() {
+			var pseudo = $('#pseudo').val();
+			var login = $('#pass').val();
+			socketio.emit("LoginAdmin", {
+				mail: pseudo,
+				password: login
+			});
+			console.log("Login send to the server. Waiting for response...");
+		}
 
-                if (data['code'] != 1)
-                {
-                    console.log("A problem has occured. Waiting for details");
-                    errorHandler(data);
-                }
-                else
-                {
-                    var html = data['html'];
-                    var name = data['name'];
+		socketio.on("LoginFailed", function(data) {
+			if ($('#wrongPass').css("display") != "none") {
+				$('#wrongPass').toggle("fast");
+			}
+			$('wrongPass').effect('shake', 100);
+		});
 
-                    _streamerName = name;
-                    $("#choiceEvent").html(html);
-                    $('#login').toggle("slow");
-                    $('#choiceEvent').toggle("slow");
-                    console.log("Login completed. Nice to see you " + name + ".\n");
-                }
+		socketio.on("LoginComplete", function(data) {
+			console.log("Response recieved from the server. code = " + data['code']);
 
-            });
+			if (data['code'] != 1) {
+				console.log("A problem has occured. Waiting for details");
+				errorHandler(data);
+			} else {
+				var html = data['html'];
+				var name = data['name'];
 
+				_streamerName = name;
+				$("#choiceEvent").html(html);
+				console.log("Login completed. Nice to see you " + name + ".\n");
+			}
+		});
 
-            // Event related
-            function sendEvent(num, nbv)
-            {
-                var code;
+		var timeLeft;
 
-                if (num && nbv)
-                    code = 0;
-                else if (!num || !nbv)
-                {
-                    code = 4;
-                }
-                socketio.emit("EventAdmin", {
-                                            name: _streamerName,
-                                            fn: num,
-                                            code: code
-                                            });
-                initResult(nbv);
-            }
+		socketio.on("CreditsAmount", function(data) {
+			if (data['code'] == 0) {
+				$('#credits').html(data['credits']);
+			} else {
+				console.log("CreditsAmount error : " + data['error']);
+			}
+		});
 
-            function cancelEvent()
-            {
-                console.log("je cancel");
-                var code = 0;
-                socketio.emit("CancelEventAdmin",   {
-                                                    name: _streamerName,
-                                                    code: code
-                                                    });
-                clearResult();
-            }
+		socketio.on("GiveawaysList", function(data) {
+			if (data['code'] == 0) {
+				$('.cadeaux_jeux_charge').html(data['giveaways']);
+			} else {
+				console.log("GiveawaysList error : " + data['error']);
+			}
+		});
 
-            socketio.on("AwnserEvent", function(data)
-            {
-               console.log(data['results']);
-                $("#1").html(data['results']['1']);
-                $("#2").html(data['results']['2']);
-                $("#3").html(data['results']['3']);
-                $("#4").html(data['results']['4']);
-                $("#5").html(data['results']['5']);
-/*                var id = "#" + data['results']['1'];
-                var curr = parseInt($(id).html());
+		socketio.on("ThankMessageEventAdmin", function(data) {
+			$('#winnerName').html(data['winner_name']);
+			$('#winnerMessage').html(data['winner_message']);
+			timeLeft = 0;
+		});
 
+		socketio.on('StartGameEventAdmin', function(data) {
+			$('#giveawayName').html(data['giveaway']);
+			$('#giveawayImg').css("background-image", 'url(' + data['giveawayImg'] + ')');
+			$('#gameName').html(data['game'].toUpperCase());
 
-                curr += 1;
-                $(id).html(curr);
-                console.log(curr);
-                console.log(id);*/
-            });
+			timeLeft = 180;
+			var elem = document.getElementById('timerGame');
+			var timerId = setInterval(countdown, 1000);
 
-            function errorHandler(data)
-            {
-                var code = data['code'];
-                var desc = data['error'];
-                var html = data['html'];
+	    function countdown() {
+	      if (timeLeft <= 0) {
+					elem.innerHTML = "Terminé";
+	        clearTimeout(timerId);
+	      } else {
+	        elem.innerHTML = timeLeft + ' secondes';
+	        timeLeft--;
+	      }
+	    }
+		});
 
-                console.log("An error has occured. If you want to know more about this contact mimoone.spark@gmail.com\nDetails :\n");
-                if (code > 1 && code <= 10)
-                {
-                    console.log("CODE :  " + code + "\n");
-                    console.log("DESCRIPTION : " + desc + "\n");
-                    if (html)
-                        $("#choiceEvent").html(html);
-                    else
-                    {
-                        $("#choiceEvent").html("<p top: 10%>No html has been given</p>");
-                    }
-                    $('#login').toggle("slow");
-                    $('#choiceEvent').toggle("slow");
-                }
-            }
+		// Event related
+		function sendEvent(num, nbv) {
+			var code;
 
+			if (num && nbv)
+				code = 0;
+			else if (!num || !nbv) {
+				code = 4;
+			}
+			socketio.emit("EventAdmin", {
+				name: _streamerName,
+				fn: num,
+				code: code
+			});
+			initResult(nbv);
+		}
 
+		function cancelEvent() {
+			console.log("je cancel");
+			var code = 0;
+			socketio.emit("CancelEventAdmin", {
+				name: _streamerName,
+				code: code
+			});
+			clearResult();
+		}
 
-            // Event's result related
-            function initResult(nbv)
-            {
-                var i = 1;
-                var nb = parseInt(nbv);
+		function errorHandler(data) {
+			var code = data['code'];
+			var desc = data['error'];
+			var html = data['html'];
 
-                while(i <= nbv)
-                {
-                    var target = "#" + i.toString();
+			console.log("An error has occured. If you want to know more about this contact mimoone.spark@gmail.com\nDetails :\n");
+			if (code > 1 && code <= 10) {
+				console.log("CODE :  " + code + "\n");
+				console.log("DESCRIPTION : " + desc + "\n");
+				if (html)
+					$("#choiceEvent").html(html);
+				else {
+					$("#choiceEvent").html("<p top: 10%>No html has been given</p>");
+				}
+				$('#login').toggle("slow");
+				$('#choiceEvent').toggle("slow");
+			}
+		}
 
-                    $(target).html("0");
-                    $(target).show();
-                    console.log("nb = " + nb);
-                    i++;
-                }
-                $("#resultEvent").show();
-                console.log("Je suis la ! :)");
-            }
+		window.onbeforeunload = closingCode;
 
-            function clearResult()
-            {
-                var i = 1;
+		function closingCode() {
+			socketio.emit("AdminLeave", {
+				name: _streamerName
+			});
+		}
+	</script>
+</footer>
 
-                $("#resultEvent").hide();
-                while(i <= 5)
-                {
-                    var target = "#" + i.toString();
-
-                    $(target).hide();
-                    $(target).html("");
-                    i++;
-                }
-            }
-
-            window.onbeforeunload = closingCode;
-            function closingCode(){
-                socketio.emit("AdminLeave", {name: _streamerName});
-            }
-
-        </script>
-	</footer>
 </html>

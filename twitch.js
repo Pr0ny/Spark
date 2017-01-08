@@ -48,18 +48,18 @@ function checkPresence(name)
 
 function requestTwitch(name, i)
 {
-	var uri = _baseUri + name;
+  var uri = _baseUri + name;
   var ret;
-	var data = _request({
-	    headers: {
-			'Client-ID': _cId,
+  var data = _request({
+      headers: {
+      'Client-ID': _cId,
       'Content-Type': 'application/json'
-    	},
-	    uri: uri,
-    	method: 'GET'
-  	},
-  	function (err, res, body)
-  	{
+      },
+      uri: uri,
+      method: 'GET'
+    },
+    function (err, res, body)
+    {
       if (body.substring(1, 14) == "\"stream\":null")
       {
         var baseUri = "https://api.twitch.tv/kraken/channels/" + name;
@@ -76,7 +76,7 @@ function requestTwitch(name, i)
             var nbc = body.indexOf("\"logo\":\"") + 8;
             var nbd = body.indexOf("\",\"banner");
             var logo = body.substring(nbc, nbd);
-            console.log("LOGO ====== " + logo);
+            //console.log("LOGO ====== " + logo);
             var obj = {
               sn: name,
               ic: 0,
@@ -104,8 +104,9 @@ function requestTwitch(name, i)
         if (checkPresence(name) == false)
           _dataStreamer.push(obj);
       }
-  	});
+    });
 }
+
 
 /*  ===================================  *\
 |                                         |

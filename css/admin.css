@@ -1,82 +1,158 @@
-body {
-	margin:		0px;
-	padding: 	0px;
+/* ---------------------------  Extension codé par SPARK --------------------------- */
+
+
+/* ---------------------------
+
+
+FONT
+
+
+--------------------------- */
+
+@font-face {
+    font-family: 'Geo-Regular';
+    src: url('Geo-Regular.otf');
+    src: url('Geo-Regular.eot') format('truetype'), url('Geo-Regular.woff') format('woff'), url('Geo-Regular.svg') format('svg');
+    font-weight: bold;
+    font-style: normal;
 }
 
-input {
-	position: absolute;
+@font-face {
+    font-family: 'Prime_Regular';
+    src: url('Prime_Regular.otf');
+    src: url('Prime_Regular.eot') format('truetype'), url('Prime_Regular.woff') format('woff'), url('Prime_Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-input[type="text"], textarea {
 
-  background-color : #d1d1d1; 
+/* ---------------------------
 
+
+ALL
+
+
+--------------------------- */
+
+* {
+    padding: 0px;
+    margin: 0px;
 }
 
-button {
-	position: absolute;
-	left: 9%;
-	display: inline-block;
-	width:120px;
-	float: left;
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
 }
 
-button+button {
-
-	margin-top : -40px;
+body,
+html {
+    font-size: 1em;
+    margin: center;
+    font-smooth: always;
+    cursor: default;
 }
 
-button+button+button {
-
-margin-top: 40px;
+a {
+    text-decoration: none;
 }
 
-button+button+button+button{
-margin-top: 80px;
-
+::-webkit-scrollbar {
+    display: none;
 }
 
-button+button+button+button+button{
-margin-top: 120px;
 
+/* ---------------------------
+
+
+
+ SYSTEME CONNEXION PARTIE 1 : CONNEXION
+
+
+
+--------------------------- */
+
+.connexion {
+    background: #F1F1F1;
+    top: 0px;
+    left: 0px;
+    height: 600px;
+    width: 610px;
+    position: fixed;
+    z-index: 85;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: url(img/export.gif);
 }
 
-button+button+button+button+button+button{
-
-margin-top: 160px;	
+.connexion img {
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    height: 300px;
+    width: 300px;
 }
 
-bg {
-	position: 	absolute;
+.connexion fieldset {
+    margin-top: 63%;
+    text-align: center;
+    border: 0;
 }
 
-login {
-	position: absolute;
+.connexion input {
+    width: 40%;
+    font-size: 15px;
+    height: 30px;
+    border: 0;
+    background: none;
+    outline: none;
+    color: #212121;
+    border-bottom: 2px solid #212121;
+    margin-bottom: 20px;
+    padding-bottom: -10px;
 }
 
-choiceEvent {
-	top: 110px;
-	width: 814px;
-	display: none;
+.connexion input::-webkit-input-placeholder {
+    color: #212121;
+    font-family: 'Prime_Regular', sans-serif, Arial;
 }
 
-h1 {
-		color:			red;
-	    font-size: 		2.0em;
-	    line-height: 	55px;
+.connexion fieldset+div input {
+    margin-left: 180px;
+    text-align: center;
+    width: 247px;
+    font-family: 'Geo-Regular', sans-serif, Arial;
+    border: 0;
+    height: 50px;
+    color: #F1F1F1;
+    margin-top: 7px;
+    background: #212121;
+    font-size: 20px;
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 2px;
 }
 
-.notif {
-	position: 			relative;
-	top:				50px;
-	left:				0%;
-	background-color: 	red;
+.connexion fieldset+div input:hover {
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    color: #fcc922;
 }
 
-resultEvent {
-	color: 		white;
-	top:		16%;
-	left:		70%;
-	position: 	absolute;
-	display: 	block;
+.connexion fieldset+div button {
+    margin-left: 180px;
+    text-align: center;
+    width: 247px;
+    font-family: 'Geo-Regular', sans-serif, Arial;
+    border: 0;
+    height: 50px;
+    color: #F1F1F1;
+    margin-top: 7px;
+    background: #212121;
+    font-size: 20px;
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 2px;
+}
+
+.connexion fieldset+div button:hover {
+    -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    color: #fcc922;
 }

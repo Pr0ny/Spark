@@ -3,6 +3,7 @@ var hone = io.connect("http://spark-esport.cleverapps.io/");
 var addfollow = document.getElementById("plus");
 var unfollow = document.getElementById("moins");
 var save = "";
+var winner = false;
 adminLog = []
 exData = [];
 val = 0;
@@ -29,41 +30,61 @@ for (var k = 0, len = spl.length; k < len; k++) {
 
 $("#txtBox").hide();
 $("#confirm").hide();
-
+$('#game').hide();
 $("#titre").css("text-align", "center");
 
-$(document).ready(function()
-{
-    function AnimEvent() {
-        $('#NoEvent').hide("fast");
-        $('#vote').show("slow");
+function sparkShowResult() {
+  setTimeout(function() {
+    if (localStorage.data4 != "null") {
+        $('#game').html(localStorage.data4);
+        localStorage.data4 = "null";
     }
+    hone.emit("LeaveClient", {room: localStorage.streamer + "_game"});
+    hone.emit("LoginClient", {
+        code: 0,
+        room: localStorage.streamer
+    });
+  }, 3000);
+}
 
+function AnimEvent() {
+    $('#NoEvent').hide("fast");
+    $('#game').show("slow");
+}
+
+function updateHtml() {
+  console.log("updateHtml");
+  if (localStorage.data3 != "null") {
+      AnimEvent();
+      if (localStorage.id != "null" && localStorage.winnerid != "null") {
+          winner = localStorage.winnerid === localStorage.id;
+          if (winner) {
+              localStorage.data4 = localStorage.winner;
+          } else {
+              localStorage.data4 = localStorage.looser;
+          }
+          localStorage.winner = "null";
+          localStorage.looser = "null";
+      }
+      $('#game').html(localStorage.data3);
+      localStorage.data3 = "null";
+  }
+}
+
+$(document).ready(function() {
     function EndEvent() {
         $('#NoEvent').show("slow");
-        $('#vote').hide("slow");
+        $('#game').hide("slow");
     }
 
-    hone.on("EventClientStart", function(data)
-    {
-        $('#vote').html(data['html']);
-        $('#css_base').attr("href", "");
-        AnimEvent();
-    });
-
-    hone.on("CancelEventClient", function()
-    {
+    hone.on("CancelEventClient", function() {
         $('#css_base').attr("href", "css/style.css");
         $('#css_vote').remove();
         EndEvent();
     });
 
-    if (localStorage.data3 != "null")
-    {
-        AnimEvent();
-        $('#vote').html(localStorage.data3);
-        $('#css_base').attr("href", "");
-        localStorage.data3 = "null";
+    if (localStorage.data3 != "null") {
+      updateHtml();
     }
 });
 
@@ -221,7 +242,6 @@ $(document).ready(function() {
                         data = "<div id='" + exData[i]['sn'] + "' class='item2'><img class='imgmoins' id='" + exData[i]['sn'] + "' src='css/img/icon.png'></div>";
                         var content = '<div class="owl-item">' + data + '</div>';
                         owl.trigger('add.owl.carousel', [$(content), i])
-                        console.log("ici = " + exData[i]['sn']);
                         $(('#' + exData[i]['sn'])).css('background-image', ("url(" + localStorage.getItem(exData[i]['sn']) + ")"));
                         $(('#' + exData[i]['sn'])).css('background-size', '100% 100%');
                     }
@@ -262,7 +282,7 @@ $(document).ready(function() {
             if (event.target.id)
             {
                 $("#titre").text(event.target.id.toUpperCase());
-                $("#titre").css("text-align", "center"); 
+                $("#titre").css("text-align", "center");
             }
         });
         $(".item").mouseout(function()
@@ -280,11 +300,34 @@ $(document).ready(function() {
         var timeout = setTimeout(function()
         {
             timeout_carousel();
+            $('.imgmoins').off();
+            $(".imgmoins").click(function(){
+                var i = 0;
+                var j = 0;
+                var resTab = [];
+                var tab_follow;
+                var name = event.target.id;
+                tab_follow = localStorage.follow.split(",")
+                while (tab_follow[i])
+                {
+                    if (tab_follow[i] == name)
+                    {
+                        i++;
+                    }
+                    if (tab_follow[i])
+                    {
+                        resTab[j] = tab_follow[i]
+                        i++;
+                        j++;
+                    }
+                }
+                localStorage.follow = "";
+                localStorage.follow = resTab.toString();
+                location.reload();
+            });
             time_this();
         }, 3000);
     }
-
-    time_this();
 
     addfollow.addEventListener("click", function()
     {
@@ -309,9 +352,15 @@ $(document).ready(function() {
                 localStorage.follow = localStorage.streamer;
             }
             location.reload();
-            console.log(res);
-            console.log(localStorage.follow);
         }
+    });
+
+    $("#twitter").click(function()
+    {
+        chrome.tabs.create({
+            url: "https://twitter.com/SparkExtension",
+            selected: true,
+        });
     });
 
     $(".imgmoins").click(function(){
@@ -325,15 +374,19 @@ $(document).ready(function() {
         {
             if (tab_follow[i] == name)
             {
-                console.log(tab_follow[i])
                 i++;
             }
-            resTab[j] = tab_follow[i]
-            i++;
-            j++;
+            if (tab_follow[i])
+            {
+                resTab[j] = tab_follow[i]
+                i++;
+                j++;
+            }
         }
-        localStorage.removeItem(follow);
+        localStorage.follow = "";
         localStorage.follow = resTab.toString();
-        location.reload();        
+        location.reload();
     });
+
+    time_this();
 });

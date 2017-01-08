@@ -9,20 +9,21 @@ FONT
 --------------------------- */
 
 @font-face {
-    font-family: 'PROXIMANOVA-BLACK';
-    src: url('PROXIMANOVA-BLACK.otf');
-    src: url('ProximaNova-Black.eot') format('truetype'), url('ProximaNova-Black.woff') format('woff'), url('ProximaNova-Black.svg') format('svg');
+    font-family: 'Roboto-Bold';
+    src: url('Roboto-Boldk.otf');
+    src: url('Roboto-Bold.eot') format('truetype'), url('Roboto-Bold.woff') format('woff'), url('Roboto-Bold.svg') format('svg');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'PROXIMANOVA-LIGHT';
-    src: url('PROXIMANOVA-LIGHT.otf');
-    src: url('ProximaNova-Light.eot') format('truetype'), url('ProximaNova-Light.woff') format('woff'), url('ProximaNova-Light.svg') format('svg');
-    font-weight: normal;
+    font-family: 'Roboto-Light';
+    src: url('Roboto-Light.otf');
+    src: url('Roboto-Light.eot') format('truetype'), url('Roboto-Light.woff') format('woff'), url('Roboto-Light.svg') format('svg');
+    font-weight: 100;
     font-style: normal;
 }
+
 
 /* ---------------------------
 
@@ -46,12 +47,25 @@ TEXTE
 --------------------------- */
 
 h1 {
-    font-family: 'PROXIMANOVA-BLACK', sans-serif, Arial;
-    text-align: left;
-    font-size: 40px;
-    color: #FCC922;
-    background: #EBEBEB;
-    padding-top: 18px;
+    font-family:'Roboto-Bold';
+    font-size: 25px;
+    color: #F1F1F1;
+    padding-top: 20px;
+    height: 55px;
+    background: #424242;
+    -webkit-transition: all 0.5s ease;
+    letter-spacing: 2px;
+}
+
+h1:after {
+    content: " ";
+    position: fixed;
+    top: 60px;
+    left: 0%;
+    width: 305px;
+    background: #212121;
+    height: 10px;
+    -webkit-transition: all 0.5s ease;
 }
 
 h4 {
@@ -89,19 +103,22 @@ LOGO + Bandeau
 }
 
 .item {
-    border: 7px solid rgba(252, 201, 34, 0);
+    border: 7px solid #212121;
     width: 50px;
     height: 50px;
-    background-repeat: no-repeat;
+    background: #212121;
     -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
 }
 
 .item2 {
-    border: 7px solid rgba(252, 201, 34, 0);
+    border: 7px solid #FBC822;
     width: 50px;
     height: 50px;
+    background: #212121;
     background-repeat: no-repeat;
     -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
 }
 
 .fleche1 {
@@ -142,17 +159,19 @@ Display
 }
 
 .streamers {
-    padding-top: 30px;
+    margin-top: 20px; 
+    padding-top: 20px;
     width: 305px;
-    height: 70px;
-    background: #EBEBEB;
+    height:100px;
+    background: url(img/background.png);
+    overflow: hidden;
 }
 
 .contenue {
     width: 305px;
-    height: 400px;
-    background: #EBEBEB;
+    height: 410px;
     z-index: 0;
+    background: url(img/background.png);
 }
 
 /* ---------------------------
@@ -182,7 +201,7 @@ Interface
 }
 
 .moins+p {
-    font-family: 'PROXIMANOVA-LIGHT', sans-serif, Arial;
+    font-family: 'Roboto-Light', sans-serif, Arial;
     opacity: 0;
     position: absolute;
     left: 65px;
@@ -205,54 +224,29 @@ Interface
 }
 
 .moins+p strong {
-    font-family: 'PROXIMANOVA-BOLD', sans-serif, Arial;
+    font-family: 'Roboto-Light', sans-serif, Arial;
 }
 
 .plus {
+    font-family:'Roboto-Light';
     position: absolute;
-    left: 10px;
-    top: 485px;
-    color: #FCC922;
-    background: #020303;
-    padding: 4px 12px 6px 12px;
-    text-decoration: none;
-    border: 0px;
-    font-size: 37px;
+    left: 45px;
+    top: 505px;
+    padding: 10px 5px 12px 3px;
     -webkit-transition: all 0.5s ease;
-    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
+    width: 210px;
+    height: 50px;
+    font-size: 15px;
+    color: #FFF;
+    background: #212121;
+    text-align: center; 
+    border: 0;
+    letter-spacing:1px;
 }
 
-.plus img {
-    height: 30px;
+.plus:hover {
+     color: #fcc922;
 }
-
-.plus+p {
-    font-family: 'PROXIMANOVA-LIGHT', sans-serif, Arial;
-    opacity: 0;
-    position: absolute;
-    left: 65px;
-    top: 485px;
-    padding: 16px 5px 18px 4px;
-    -webkit-transition: all 0.5s ease;
-    width: 140px;
-    font-size: 16px;
-    color: #FCC922;
-    background: #020303;
-    text-align: center;
-    visibility: hidden;
-    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
-}
-
-.plus:hover+p {
-    left: 75px;
-    opacity: 1;
-    visibility: visible;
-}
-
-.plus+p strong {
-    font-family: 'PROXIMANOVA-BOLD', sans-serif, Arial;
-}
-
 /* ---------------------------
 
 
@@ -261,43 +255,20 @@ Twitter
 
 --------------------------- */
 
-#twitter img {
-    position: absolute;
-    left: 235px;
-    top: 485px;
-    height: 40px;
-    -webkit-transition: all 0.5s ease;
-    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
-    background: #020303;
-    padding: 6px 6px 6px 6px;
-}
-
 #twitter p {
-    font-family: 'PROXIMANOVA-LIGHT', sans-serif, Arial;
-    opacity: 0;
+    font-family:'Roboto-Light';
     position: absolute;
-    left: 85px;
-    top: 485px;
-    padding: 16px 5px 18px 4px;
+    left: 50px;
+    top: 562px;
+    padding: 0px 5px 0px 3px;
     -webkit-transition: all 0.5s ease;
-    width: 140px;
-    background: #020303;
-    text-align: center;
-    -webkit-box-shadow: 4px -4px 0px 0px #F70572;
-    visibility: hidden;
+    width: 190px;
+    font-size: 17px;
+    color: #212121;
+    text-align: center; 
+    border: 0;
 }
 
-#twitter strong {
-    font-family: 'PROXIMANOVA-BOLD', sans-serif, Arial;
-}
-
-#twitter img:hover+p {
-    opacity: 1;
-    left: 75px;
-    -webkit-transition: all 0.5s ease;
-    visibility: visible;
-}
-
-#twitter a {
-    color: #FCC922;
+#twitter p:hover {
+color: #fcc922;
 }

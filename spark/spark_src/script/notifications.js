@@ -37,8 +37,13 @@ for (var k = 0, len = spl.length; k < len; k++) {
 
 localStorage.data2 = "null";
 localStorage.data3 = "null";
+localStorage.data4 = "null";
+localStorage.id = "null";
+localStorage.winnerid = "null";
 localStorage.streamer = "null";
 localStorage.fullUrl = "null";
+localStorage.winner = "null";
+localStorage.looser = "null";
 
 hone.emit("streamers", {
     streamers: localStorage.follow
@@ -167,7 +172,7 @@ function refresh() {
                 options = {
                     type: "basic",
                     title: "Spark Now !",
-                    message: "Un vote a été lancé, ouvre le popup !",
+                    message: "Un mini-jeu a été lancé, ouvre l'extension !",
                     iconUrl: "ICONS/logo-01.gif",
                 }
                 hone.emit("LoginClient", {
@@ -179,7 +184,17 @@ function refresh() {
             hone.on("EventClientStart", function(data) {
                 _mUrl = "https://www.twitch.tv/" + save;
                 localStorage.data2 = data['html'];
+                localStorage.winnerid = data['id'];
+                localStorage.winner = data['winner'];
+                localStorage.looser = data['looser'];
             });
+
+            hone.on("ParticipateEventClientStart", function(data) {
+                console.log("Ok j'ai reçu la ParticipateEventClientStart");
+                _mUrl = "https://www.twitch.tv/" + save;
+                localStorage.data2 = data['html'];
+            });
+
             if (localStorage.data2 != "null") {
                 let vote_name = "vote" + Math.random().toString();
                 chrome.notifications.create(vote_name, options, cb());
@@ -197,12 +212,20 @@ function refresh() {
 }
 refresh();
 
+function isLiveOpen() {
+  chrome.tabs.getAllInWindow(window.id, function(tabs) {
+      var tab = tabs.map(function(elem) { return elem.url; }).indexOf("twitch.tv/" + localStorage.streamer);
+      return (tab != -1);
+  });
+  return false;
+}
+
 function setFocusOnLiveTab2() {
     chrome.tabs.getAllInWindow(window.id, function(tabs) {
         var tab = tabs.map(function(elem) { return elem.url; }).indexOf(NewUrl);
         if (tab != -1) {
             chrome.tabs.update(tabs[tab].id, {selected: true});
-        } else {        
+        } else {
             chrome.tabs.create({
                 url: NewUrl,
                 selected: true,

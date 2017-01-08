@@ -1,0 +1,16 @@
+<link id="css_base" rel="stylesheet" href="results/css/style.css" media="screen">
+<div class="looser">
+  <strong> Tu n'as pas gagné le giveaway :( </strong>
+    <div>
+      <div>
+        <button class="button">"Continuer"</button>
+      </div>
+   </div>
+   <script>
+     $(document).ready(function () {
+       $(".button").click(function () {
+         window.close();
+       });
+     });
+   </script>
+</div>

@@ -4,7 +4,7 @@
   "name": "Spark for viewer",
   "short_name": "Spark",
   "description": "SparkExtension",
-  "version": "1.4.10",
+  "version": "2.0.3",
 
   "background": {
       "page": "notifications.html"
@@ -24,7 +24,7 @@
     "activeTab",
     "https://static-cdn.jtvnw.net/",
     "https://ajax.googleapis.com/",
-    "https://spark-esport-dev.cleverapps.io/*"
+    "https://spark-esport.cleverapps.io/*"
   ],
   "icons": {
       "128" : "ICONS/logo-03.png"

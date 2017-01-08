@@ -1,0 +1,62 @@
+span {
+	margin:		0px;
+	padding: 	0px;
+}
+
+button {
+	position: absolute;
+	left: 9%;
+	display: inline-block;
+	width:120px;
+	float: left;
+}
+
+login {
+	position: absolute;
+}
+
+.element, .outer-container {
+ width: 460px;
+ height: 600px;
+}
+ 
+.outer-container {
+ position: relative;
+ overflow: hidden;
+}
+ 
+.inner-container {
+ position: absolute;
+ left: 0;
+ overflow-x: hidden;
+ overflow-y: scroll;
+}
+ 
+.inner-container::-webkit-scrollbar {
+ display: none;
+}
+
+body {
+	margin: 	0px;
+	padding: 	0px;
+	width:		460px;
+	height: 	600px;
+}
+
+vrall {
+	display: 	none;
+	height: 	100%;
+	width: 		100%;
+};
+
+imgbcg {
+	height: 	600px;
+	width: 		814px;
+	z-index:	-1;
+};
+
+noEvent	{
+	height: 	100%;
+	width: 		100%;
+	display: 	inline;
+};
