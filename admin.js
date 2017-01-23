@@ -88,6 +88,7 @@
 			else if (!num || !nbv) {
 				code = 4;
 			}
+			console.log("Event lancé !");
 			socketio.emit("EventAdmin", {
 				name: _streamerName,
 				fn: num,
