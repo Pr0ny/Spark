@@ -1,11 +1,11 @@
 html {
-	max-height:	472px;
-	max-width: 	500px;
+	max-height:	600px;
+	max-width: 	600px;
 }
 
 .element, .outer-container {
- width: 500px;
- height: 472px;
+ width: 600px;
+ height: 600px;
 }
  
 .outer-container {
@@ -27,8 +27,8 @@ html {
 body {
 	padding: 	0px;
 	margin: 	0px;
-	height: 	472px;
-	width:		500px;
+	height: 	600px;
+	width:		600px;
 }
 
 iframe {
