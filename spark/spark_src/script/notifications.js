@@ -3,7 +3,7 @@
 // 	  			| quentin.chemin@epitech.eu			|		\\
 //	  			-------------------------------------		\\
 
-var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
+var hone = io.connect("http://spark-esport.cleverapps.io/");
 var res = "";
 var val = 0
 var value = 0;

@@ -1,4 +1,4 @@
-var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
+var hone = io.connect("http://spark-esport.cleverapps.io/");
 
 var addfollow = document.getElementById("plus");
 var unfollow = document.getElementById("moins");
