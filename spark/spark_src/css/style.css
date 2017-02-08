@@ -137,6 +137,69 @@ LOGO + Bandeau
     left: 5px;
 }
 
+.img2 {
+    position: absolute;
+    left:   85px;
+    top:    0px;
+}
+
+.img3 {
+    position: absolute;
+    left:   170px;
+    top:    0px;
+}
+
+.img4 {
+    position: absolute;
+    top: 140%;
+}
+
+.img5 {
+    position: absolute;
+    left:   85px;
+    top:    140%;
+}
+
+.img6 {
+    position: absolute;
+    left:   170px;
+    top:    140%;
+}
+
+.img7 {
+    position: absolute;
+    top:    280%;
+}
+
+.img8 {
+    position: absolute;
+    left:   85px;
+    top:    280%;
+}
+
+.img9 {
+    position: absolute;
+    left:   170px;
+    top:    280%;
+}
+
+.img10 {
+    position: absolute;
+    top:    420%;
+}
+
+.img11 {
+    position: absolute;
+    left:   85px;
+    top:    420%;
+}
+
+.img12 {
+    position: absolute;
+    left:   170px;
+    top:    420%;
+}
+
 /* ---------------------------
 
 
@@ -162,7 +225,7 @@ Display
     margin-top: 20px; 
     padding-top: 20px;
     width: 305px;
-    height:100px;
+    height:410px;
     background: url(img/background.png);
     overflow: hidden;
 }

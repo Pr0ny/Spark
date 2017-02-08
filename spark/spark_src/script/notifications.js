@@ -3,7 +3,7 @@
 // 	  			| quentin.chemin@epitech.eu			|		\\
 //	  			-------------------------------------		\\
 
-var hone = io.connect("http://spark-esport.cleverapps.io/");
+var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
 var res = "";
 var val = 0
 var value = 0;
@@ -157,6 +157,7 @@ function refresh() {
             active: true
         }, function(tab) {
             var str = tab[0].url.split("/", 4)
+            localStorage.fullUrl = tab[0].url;
             res = str[3];
             if (res == "")
                 res = str[2];
@@ -168,7 +169,6 @@ function refresh() {
                 if (str[2] == "www.skyyart.fr") res = "www.skyyart.fr";
                 save = res;
                 localStorage.streamer = res;
-                localStorage.fullUrl = str[2];
                 options = {
                     type: "basic",
                     title: "Spark Now !",

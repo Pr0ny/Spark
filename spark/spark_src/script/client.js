@@ -1,4 +1,4 @@
-var hone = io.connect("http://spark-esport.cleverapps.io/");
+var hone = io.connect("http://spark-esport-dev.cleverapps.io/");
 
 var addfollow = document.getElementById("plus");
 var unfollow = document.getElementById("moins");
@@ -95,6 +95,7 @@ $(document).ready(function(){
     loop:false,
     margin:-50,
     nav:true,
+    items:1,
     navText: ["<img class='fleche1' src='css/img/fleche.png'>","<img class='fleche2' src='css/img/fleche_2.png'>"],
     });
 });
@@ -112,32 +113,59 @@ $(document).ready(function() {
       textholder,
       booleanValue = false;
 
-/*  owl.owlCarousel({
-    loop:true,
-    margin:-50,
-    nav:true,
-  });*/
-
 
 //////////// SET CAROUSEL AU LANCEMENT \\\\\\\\\\\\
 
     function set_carousel()
     {
+        var j = 0;
         owl.trigger('del.owl', [0]);
         if (localStorage.follow)
         {
             if (localStorage.follow.localeCompare(save) != 0)
             {
+                var j = 0;
                 var res = localStorage.follow.split(",");
                 var i = 0;
-                while (res[i])
+                var k = res.length / 12;
+                var save;
+                while (k > 0)
                 {
-                    data = "<div id='" + res[i] + "' class='item'><img class='imgmoins' id='" + res[i] + "' src='css/img/icon.png'></div>";
-                    var content = '<div class="owl-item">' + data + '</div>';
-                    owl.trigger('add.owl', [$(content), i]);
-                    $(('#' + res[i])).css('background-image', ("url(" + localStorage.getItem(res[i]) + ")"));
-                    $(('#' + res[i])).css('background-size', '100% 100%');
-                    i++;
+                    i = 0;
+                    save = j;
+                    var content = "<div class='owl-item'>";
+                    while (res[j] && i < 12)
+                    {
+                        data = "<div id='" + res[j] + "' class='item'><img class='imgmoins' id='" + res[j] + "' src='css/img/icon.png'></div>";
+                        content += data;
+                        j++;
+                        i++;
+                    }
+                    i = 0;
+                    content += '</div>';
+                    owl.trigger('add.owl', [$(content), 0]);
+                    j = save;
+                    while (i < 12)
+                    {
+                        if (i == 0)
+                        {
+                            $(('#' + res[j])).css('background-image', ("url(" + localStorage.getItem(res[j]) + ")"));
+                            $(('#' + res[j])).css('background-size', '100% 100%');
+                            j++;
+                        }
+                        else
+                        {
+                            $(('#' + res[j])).css('background-image', ("url(" + localStorage.getItem(res[j]) + ")"));
+                            $(('#' + res[j])).css('background-size', '100% 100%');
+                            j++;
+                            if (save < 1)
+                                $(('#' + res[j - 1])).addClass('img' + j);
+                            else
+                                $(('#' + res[j - 1])).addClass('img' + (j - save));
+                        }
+                        i++;
+                    }
+                    k--;
                 }
             }
         }
@@ -163,9 +191,9 @@ $(document).ready(function() {
 
     function timeout_carousel()
     {
-
         if (exData.length == 0)
         {
+            console.log("je passe ou pas ?")
             hone.emit("getLive", {streamers: localStorage.follow})
 
             hone.on("setLive",  function(data)
@@ -219,14 +247,59 @@ $(document).ready(function() {
     var data = "";
     if (localStorage.follow)
     {
+//        console.log(exData);
         if (exData[0]['sn'].localeCompare("null") != 0)
         {
             if (saved != total)
             {
                 delete_carousel();
                 hone.emit("streamers", {streamers: localStorage.follow});
+                var j = 0;
                 var i = 0;
-                while (exData[i])
+                var k = exData.length / 12;
+                var save;
+                while (k > 0)
+                {
+                    i = 0;
+                    save = j;
+                    var content = "<div class='owl-item'>";
+                    while (exData[j] && i < 12)
+                    {
+                        if (exData[j]['ic'] == 0)
+                            data = "<div id='" + exData[j]['sn'] + "' class='item'><img class='imgmoins' id='" + exData[j]['sn'] + "' src='css/img/icon.png'></div>";
+                        else
+                            data = "<div id='" + exData[j]['sn'] + "' class='item2'><img class='imgmoins' id='" + exData[j]['sn'] + "' src='css/img/icon.png'></div>";
+                        content += data;
+                        j++;
+                        i++;
+                    }
+                    i = 0;
+                    content += '</div>';
+                    owl.trigger('add.owl', [$(content), 0]);
+                    j = save;
+                    while (exData[j] && i < 12)
+                    {
+                        if (i == 0)
+                        {
+                            $(('#' + exData[j]['sn'])).css('background-image', ("url(" + localStorage.getItem(exData[j]['sn']) + ")"));
+                            $(('#' + exData[j]['sn'])).css('background-size', '100% 100%');
+                            j++;
+                        }
+                        else
+                        {
+                            $(('#' + exData[j]['sn'])).css('background-image', ("url(" + localStorage.getItem(exData[j]['sn']) + ")"));
+                            $(('#' + exData[j]['sn'])).css('background-size', '100% 100%');
+                            j++;
+                            if (save < 1)
+                                $(('#' + exData[j - 1]['sn'])).addClass('img' + j);
+                            else
+                                $(('#' + exData[j - 1]['sn'])).addClass('img' + (j - save));
+                        }
+                        i++;
+                    }
+                    k--;
+                }                
+/*                while (exData[i])
                 {
                     myUrl = "https://www.twitch.tv/" + exData[i]['sn'];
                     if (exData[i]['ic'] == 0)
@@ -246,7 +319,7 @@ $(document).ready(function() {
                         $(('#' + exData[i]['sn'])).css('background-size', '100% 100%');
                     }
                     i++;
-                }
+                }*/
                 saved = total;
                 owl.trigger('refresh.owl.carousel');
             }
@@ -331,11 +404,17 @@ $(document).ready(function() {
 
     addfollow.addEventListener("click", function()
     {
-        if (localStorage.streamer != "null" && localStorage.fullUrl != "null")
+        if (localStorage.fullUrl != 'null')
+        {
+            var check = localStorage.fullUrl;
+            var tab = check.split("/", 6);
+        }
+        if (localStorage.streamer != "null" && tab.length < 5)
         {
             if (localStorage.follow)
             {
                 var res = localStorage.follow.split(",");
+
                 var i = 0;
 
                 while (res[i] && i != -1)
@@ -387,6 +466,5 @@ $(document).ready(function() {
         localStorage.follow = resTab.toString();
         location.reload();
     });
-
     time_this();
 });

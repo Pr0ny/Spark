@@ -62,6 +62,8 @@
 .owl-carousel .owl-stage {
   position: relative;
   -ms-touch-action: pan-Y;
+  width: 80px;
+  height: 400px;
 }
 .owl-carousel .owl-stage:after {
   content: ".";
@@ -73,9 +75,9 @@
 }
 .owl-carousel .owl-stage-outer {
   position: absolute;
-  left:     35px;
-  right:    35px;
-  top:      17px;
+  left:     12%;
+  right:    10%;
+  top:      10%;
   font-size: 10px;
   overflow: hidden;
   /* fix for flashing background */
@@ -137,8 +139,8 @@
 .owl-carousel .owl-item img {
     margin-top: 35px;
     margin-left: 35px;
-    width: 15px;
-    height: 15px;
+    width: 20%;
+    height: 20%;
     display: block;
     -webkit-transform-style: preserve-3d;
 }
