@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/7e54d47ca06643829f57aceef341defb6f682e1b/node-webkit/node-webkit.d.ts",
+    "raw": "registry:dt/node-webkit#0.0.0+20160726164208",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/7e54d47ca06643829f57aceef341defb6f682e1b/node-webkit/node-webkit.d.ts"
+  }
+}

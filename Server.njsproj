@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a2a34ec4-6e92-485e-8385-14e28af92300}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="css\img\" />
+    <Folder Include="public\" />
+    <Folder Include="public\img\" />
+    <Folder Include="public\img\spark\" />
+    <Folder Include="public\img\spark\background\" />
+    <Folder Include="public\img\spark\icon\" />
+    <Folder Include="public\script\" />
+    <Folder Include="public\streamers-html\" />
+    <Folder Include="public\streamers-html\css\" />
+    <Folder Include="public\streamers-html\css\img\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_1\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_2\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_3\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_4\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_5\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_1\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_2\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_3\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_4\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_5\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_1\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_2\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_3\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_4\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_5\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_1\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_2\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_3\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_4\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_5\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_1\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_2\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_3\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_4\" />
+    <Folder Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_5\" />
+    <Folder Include="public\streamers-html\css\img\jeux_giveaway\" />
+    <Folder Include="public\streamers-html\js\" />
+    <Folder Include="public\viewers-html\" />
+    <Folder Include="spark\" />
+    <Folder Include="spark\spark_src\" />
+    <Folder Include="spark\spark_src\css\" />
+    <Folder Include="spark\spark_src\css\img\" />
+    <Folder Include="spark\spark_src\games\" />
+    <Folder Include="spark\spark_src\games\casino\" />
+    <Folder Include="spark\spark_src\games\casino\assets\" />
+    <Folder Include="spark\spark_src\games\casino\js\" />
+    <Folder Include="spark\spark_src\games\diceroll\" />
+    <Folder Include="spark\spark_src\games\diceroll\assets\" />
+    <Folder Include="spark\spark_src\games\diceroll\js\" />
+    <Folder Include="spark\spark_src\games\grattage\" />
+    <Folder Include="spark\spark_src\games\grattage\assets\" />
+    <Folder Include="spark\spark_src\games\grattage\js\" />
+    <Folder Include="spark\spark_src\ICONS\" />
+    <Folder Include="spark\spark_src\js\" />
+    <Folder Include="spark\spark_src\owlcarousel\" />
+    <Folder Include="spark\spark_src\owlcarousel\assets\" />
+    <Folder Include="spark\spark_src\participate\" />
+    <Folder Include="spark\spark_src\participate\css\" />
+    <Folder Include="spark\spark_src\results\" />
+    <Folder Include="spark\spark_src\results\css\" />
+    <Folder Include="spark\spark_src\script\" />
+    <Folder Include="spark_streamer\" />
+    <Folder Include="spark_streamer\spark_streamer_src\" />
+    <Folder Include="spark_streamer\spark_streamer_src\ICONS\" />
+    <Folder Include="typings\" />
+    <Folder Include="typings\globals\" />
+    <Folder Include="typings\globals\jquery\" />
+    <Folder Include="typings\globals\node-webkit\" />
+    <Folder Include="typings\globals\node\" />
+    <Folder Include="typings\globals\pg-promise\" />
+    <Folder Include="typings\globals\socket.io-client\" />
+    <Folder Include="typings\globals\socket.io\" />
+    <Folder Include="typings\globals\uuid\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="typings\globals\jquery\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\node-webkit\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\pg-promise\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\socket.io-client\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\socket.io\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\uuid\index.d.ts" />
+    <TypeScriptCompile Include="typings\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin.html" />
+    <Content Include="css\admin.css" />
+    <Content Include="css\Geo-Regular.eot" />
+    <Content Include="css\Geo-Regular.ttf" />
+    <Content Include="css\Geo-Regular.woff" />
+    <Content Include="css\img\export.gif" />
+    <Content Include="css\img\logo.png" />
+    <Content Include="css\img\twitter.png" />
+    <Content Include="css\img\vip.png" />
+    <Content Include="css\Prime_Regular.eot" />
+    <Content Include="css\Prime_Regular.otf" />
+    <Content Include="css\Prime_Regular.woff" />
+    <Content Include="package.json" />
+    <Content Include="public\img\spark\._logoHD.png" />
+    <Content Include="public\img\spark\._maquette.png" />
+    <Content Include="public\img\spark\background\._banner streamer.png" />
+    <Content Include="public\img\spark\background\background.png" />
+    <Content Include="public\img\spark\background\banner streamer.png" />
+    <Content Include="public\img\spark\background\banner viewer.png" />
+    <Content Include="public\img\spark\background\bck.png" />
+    <Content Include="public\img\spark\icon\._croix.png" />
+    <Content Include="public\img\spark\icon\._intéro blanc.png" />
+    <Content Include="public\img\spark\icon\._items blanc.png" />
+    <Content Include="public\img\spark\icon\._items noir.png" />
+    <Content Include="public\img\spark\icon\._map noir.png" />
+    <Content Include="public\img\spark\icon\croix.png" />
+    <Content Include="public\img\spark\icon\intero_blanc.png" />
+    <Content Include="public\img\spark\icon\intero_noir.png" />
+    <Content Include="public\img\spark\icon\items_blanc.png" />
+    <Content Include="public\img\spark\icon\items_noir.png" />
+    <Content Include="public\img\spark\icon\map_blanc.png" />
+    <Content Include="public\img\spark\icon\map_noir.png" />
+    <Content Include="public\img\spark\icon\perso_blanc.png" />
+    <Content Include="public\img\spark\icon\perso_noir.png" />
+    <Content Include="public\img\spark\logoHD.png" />
+    <Content Include="public\img\spark\maquette.png" />
+    <Content Include="public\streamers-html\css\img\abonnement.png" />
+    <Content Include="public\streamers-html\css\img\abonnement_1.png" />
+    <Content Include="public\streamers-html\css\img\abonnement_2.png" />
+    <Content Include="public\streamers-html\css\img\abonnement_3.png" />
+    <Content Include="public\streamers-html\css\img\abonnement_4.png" />
+    <Content Include="public\streamers-html\css\img\background.png" />
+    <Content Include="public\streamers-html\css\img\background_inscritpion.gif" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_1\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_1\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_2\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_2\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_3\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_3\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_4\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_4\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_5\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_1\cadeaux_jeux_liste_5\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_1\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_1\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_2\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_2\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_3\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_3\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_4\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_4\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_5\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_2\cadeaux_jeux_liste_5\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_1\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_1\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_2\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_2\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_3\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_3\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_4\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_4\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_5\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_3\cadeaux_jeux_liste_5\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_1\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_1\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_2\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_2\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_3\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_3\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_4\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_4\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_5\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_4\cadeaux_jeux_liste_5\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_1\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_1\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_2\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_2\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_3\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_3\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_4\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_4\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_5\icone_produit.png" />
+    <Content Include="public\streamers-html\css\img\cadeaux_jeux_charge\charge_5\cadeaux_jeux_liste_5\icone_type.png" />
+    <Content Include="public\streamers-html\css\img\jeux_giveaway\jeux_1.png" />
+    <Content Include="public\streamers-html\css\img\jeux_giveaway\jeux_2.png" />
+    <Content Include="public\streamers-html\css\img\jeux_giveaway\jeux_3.png" />
+    <Content Include="public\streamers-html\css\img\jeux_giveaway\jeux_4.png" />
+    <Content Include="public\streamers-html\css\img\logo.png" />
+    <Content Include="public\streamers-html\css\img\price.png" />
+    <Content Include="public\streamers-html\css\img\produit.jpg" />
+    <Content Include="public\streamers-html\css\Roboto-Bold.eot" />
+    <Content Include="public\streamers-html\css\Roboto-Bold.ttf" />
+    <Content Include="public\streamers-html\css\Roboto-Bold.woff" />
+    <Content Include="public\streamers-html\css\Roboto-Light.eot" />
+    <Content Include="public\streamers-html\css\Roboto-Light.ttf" />
+    <Content Include="public\streamers-html\css\Roboto-Light.woff" />
+    <Content Include="public\streamers-html\css\style.css" />
+    <Content Include="public\streamers-html\interface.txt" />
+    <Content Include="public\streamers-html\style.css" />
+    <Content Include="public\viewers-html.zip" />
+    <Content Include="public\viewers-html\looser.txt" />
+    <Content Include="public\viewers-html\participate.txt" />
+    <Content Include="public\viewers-html\winner.txt" />
+    <Content Include="spark\spark_src\client.html" />
+    <Content Include="spark\spark_src\css\Grab.cur" />
+    <Content Include="spark\spark_src\css\img\background.png" />
+    <Content Include="spark\spark_src\css\img\fleche.png" />
+    <Content Include="spark\spark_src\css\img\fleche_2.png" />
+    <Content Include="spark\spark_src\css\img\icon.png" />
+    <Content Include="spark\spark_src\css\ProximaNova-Black.eot" />
+    <Content Include="spark\spark_src\css\PROXIMANOVA-BLACK.OTF" />
+    <Content Include="spark\spark_src\css\ProximaNova-Black.svg" />
+    <Content Include="spark\spark_src\css\ProximaNova-Black.woff" />
+    <Content Include="spark\spark_src\css\ProximaNova-Light.eot" />
+    <Content Include="spark\spark_src\css\PROXIMANOVA-LIGHT.OTF" />
+    <Content Include="spark\spark_src\css\ProximaNova-Light.svg" />
+    <Content Include="spark\spark_src\css\ProximaNova-Light.woff" />
+    <Content Include="spark\spark_src\css\Roboto-Bold.eot" />
+    <Content Include="spark\spark_src\css\Roboto-Bold.ttf" />
+    <Content Include="spark\spark_src\css\Roboto-Bold.woff" />
+    <Content Include="spark\spark_src\css\Roboto-Light.eot" />
+    <Content Include="spark\spark_src\css\Roboto-Light.ttf" />
+    <Content Include="spark\spark_src\css\Roboto-Light.woff" />
+    <Content Include="spark\spark_src\css\style.css" />
+    <Content Include="spark\spark_src\css\style3.css" />
+    <Content Include="spark\spark_src\css\style3test.css" />
+    <Content Include="spark\spark_src\games\casino\assets\bg.png" />
+    <Content Include="spark\spark_src\games\casino\assets\casino.png" />
+    <Content Include="spark\spark_src\games\casino\assets\cherry.png" />
+    <Content Include="spark\spark_src\games\casino\assets\clover.png" />
+    <Content Include="spark\spark_src\games\casino\assets\lever.png" />
+    <Content Include="spark\spark_src\games\casino\assets\lose.png" />
+    <Content Include="spark\spark_src\games\casino\assets\machine.png" />
+    <Content Include="spark\spark_src\games\casino\assets\roll.png" />
+    <Content Include="spark\spark_src\games\casino\assets\roll2.png" />
+    <Content Include="spark\spark_src\games\casino\assets\roll3.png" />
+    <Content Include="spark\spark_src\games\casino\assets\seven.png" />
+    <Content Include="spark\spark_src\games\casino\assets\win.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\bg.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\cross.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\dice1.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\dice2.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\dice3.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\dice4.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\dice5.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\dice6.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\dice_roll.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\hide.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\lose.png" />
+    <Content Include="spark\spark_src\games\diceroll\assets\win.png" />
+    <Content Include="spark\spark_src\games\grattage\assets\bg.png" />
+    <Content Include="spark\spark_src\games\grattage\assets\draven.png" />
+    <Content Include="spark\spark_src\games\grattage\assets\lose.png" />
+    <Content Include="spark\spark_src\games\grattage\assets\scratch.png" />
+    <Content Include="spark\spark_src\games\grattage\assets\teemo.png" />
+    <Content Include="spark\spark_src\games\grattage\assets\urgot.png" />
+    <Content Include="spark\spark_src\games\grattage\assets\win.png" />
+    <Content Include="spark\spark_src\ICONS\logo-01.gif" />
+    <Content Include="spark\spark_src\ICONS\logo-03.png" />
+    <Content Include="spark\spark_src\interface.css" />
+    <Content Include="spark\spark_src\js\jquery-ui.css" />
+    <Content Include="spark\spark_src\js\jquery-ui.min.css" />
+    <Content Include="spark\spark_src\js\jquery-ui.structure.css" />
+    <Content Include="spark\spark_src\js\jquery-ui.structure.min.css" />
+    <Content Include="spark\spark_src\js\jquery-ui.theme.css" />
+    <Content Include="spark\spark_src\js\jquery-ui.theme.min.css" />
+    <Content Include="spark\spark_src\lolchoice.css" />
+    <Content Include="spark\spark_src\manifest.json" />
+    <Content Include="spark\spark_src\notifications.html" />
+    <Content Include="spark\spark_src\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="spark\spark_src\participate\css\background.png" />
+    <Content Include="spark\spark_src\participate\css\Roboto-Bold.eot" />
+    <Content Include="spark\spark_src\participate\css\Roboto-Bold.ttf" />
+    <Content Include="spark\spark_src\participate\css\Roboto-Bold.woff" />
+    <Content Include="spark\spark_src\participate\css\Roboto-Light.eot" />
+    <Content Include="spark\spark_src\participate\css\Roboto-Light.ttf" />
+    <Content Include="spark\spark_src\participate\css\Roboto-Light.woff" />
+    <Content Include="spark\spark_src\participate\css\style.css" />
+    <Content Include="spark\spark_src\results\css\background.png" />
+    <Content Include="spark\spark_src\results\css\Roboto-Bold.eot" />
+    <Content Include="spark\spark_src\results\css\Roboto-Bold.ttf" />
+    <Content Include="spark\spark_src\results\css\Roboto-Bold.woff" />
+    <Content Include="spark\spark_src\results\css\Roboto-Light.eot" />
+    <Content Include="spark\spark_src\results\css\Roboto-Light.ttf" />
+    <Content Include="spark\spark_src\results\css\Roboto-Light.woff" />
+    <Content Include="spark\spark_src\results\css\style.css" />
+    <Content Include="spark_streamer\spark_streamer_src\ICONS\Icon128-01-01.png" />
+    <Content Include="spark_streamer\spark_streamer_src\ICONS\Icon48-01.png" />
+    <Content Include="spark_streamer\spark_streamer_src\index_streamer2.html" />
+    <Content Include="spark_streamer\spark_streamer_src\manifest.json" />
+    <Content Include="spark_streamer\spark_streamer_src\popup.css" />
+    <Content Include="spark_streamer\src.crx" />
+    <Content Include="spark_streamer\src.pem" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="database.js" />
+    <Compile Include="main.js" />
+    <Compile Include="public\script\choix_vote.js" />
+    <Compile Include="public\script\choix_vote2.js" />
+    <Compile Include="public\script\event.js" />
+    <Compile Include="public\streamers-html\js\animation.js" />
+    <Compile Include="redis.js" />
+    <Compile Include="server.js" />
+    <Compile Include="socket.js" />
+    <Compile Include="spark\spark_src\games\casino\js\game.min.js" />
+    <Compile Include="spark\spark_src\games\diceroll\js\game.min.js" />
+    <Compile Include="spark\spark_src\games\grattage\js\game.min.js" />
+    <Compile Include="spark\spark_src\games\phaser.min.js" />
+    <Compile Include="spark\spark_src\js\jquery-ui.js" />
+    <Compile Include="spark\spark_src\js\jquery-ui.min.js" />
+    <Compile Include="spark\spark_src\js\jquery.min.js" />
+    <Compile Include="spark\spark_src\js\socket.io.js" />
+    <Compile Include="spark\spark_src\owlcarousel\owl.carousel.js" />
+    <Compile Include="spark\spark_src\owlcarousel\owl.carousel.min.js" />
+    <Compile Include="spark\spark_src\script\client.js" />
+    <Compile Include="spark\spark_src\script\notifications.js" />
+    <Compile Include="spark\spark_src\script\vote_role.js" />
+    <Compile Include="spark\spark_src\script\vote_role2.js" />
+    <Compile Include="spark_streamer\spark_streamer_src\open_window.js" />
+    <Compile Include="spark_streamer\spark_streamer_src\window.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

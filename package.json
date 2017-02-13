@@ -1,29 +1,31 @@
 {
-  "name": "spark",
-  "version": "0.0.1",
-  "description": "",
-  "main": "server.js",
+  "version": "0.1.0",
+  "description": "Simple server for Spark",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "engines": {
+    "node": "~6.9.5"
+  },
   "dependencies": {
     "ajax": "~0.0.4",
     "app": "~0.1.0",
+    "deasync": "^0.1.9",
     "express": "~4.14.0",
     "formidable": "~1.0.17",
     "jquery": "~3.1.0",
     "pg": "^6.1.2",
     "pg-promise": "^5.5.0",
+    "redis": "^2.6.5",
     "socket.io": "~1.4.8",
     "socket.io-client": "~1.4.8",
     "static": "~2.0.0",
     "uuid": "^3.0.1"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
   "repository": {
     "type": "git",
-    "url": "git@git.epitech.eu:/chemin_q/spark"
+    "url": "https://gitlab.com/Pr0ny/Server.git"
   },
   "author": "Quentin Chemin / Matthieu Lambert / Corentin Cailleaud",
   "license": "BSD-2-Clause"
